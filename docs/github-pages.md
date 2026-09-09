@@ -17,14 +17,16 @@ No always-on Postgres is required for the default publisher path.
 ## Enable once
 
 1. Push this repository to GitHub.
-2. **Settings → Pages → Source: GitHub Actions**
-3. Optional repository variable:
-   - `WEIRD_BASE_PATH` = `/your-repo-name` (required for project sites like `user.github.io/repo`)
+2. Prefer **Settings → Pages → Source: GitHub Actions** (or let bootstrap auto-enable via `configure-pages` `enablement: true`).
+3. Repository variable (required for project sites):
+   - `WEIRD_BASE_PATH` = `/WE-RD` → paper at `https://<user>.github.io/WE-RD/`
 4. Optional secrets (quality accelerators, not required):
    - `OPENAI_API_KEY` / `ANTHROPIC_API_KEY` / `GEMINI_API_KEY`
    - `YOUTUBE_API_KEY`
    - `GITHUB_TOKEN` is provided automatically; a PAT only helps rate limits
 5. Run workflow **Bootstrap Pages (first deploy)** manually.
+
+If bootstrap fails with `Get Pages site failed` / `Not Found`, Pages was never created — set Source to **GitHub Actions** in Settings, then re-run the workflow.
 
 Your newspaper will appear at:
 
