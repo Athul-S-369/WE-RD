@@ -1,12 +1,13 @@
 name: Bootstrap Pages (first deploy)
 
-# Seeds corpus, builds static newspaper, deploys to GitHub Pages.
+# Seeds corpus, builds static newspaper, publishes it.
 #
-# ONE-TIME (required before deploy works):
-#   https://github.com/Athul-S-369/WE-RD/settings/pages
-#   → Build and deployment → Source → GitHub Actions
+# Deploy strategy:
+#   1) Prefer official GitHub Actions Pages (if already enabled)
+#   2) Else push site to `gh-pages` branch (works with GITHUB_TOKEN)
+#      → then set Settings → Pages → Deploy from a branch → gh-pages
 #
-# Optional secret WEIRD_PAGES_TOKEN (classic PAT, repo scope) can create Pages via API.
+# Optional: secret WEIRD_PAGES_TOKEN (classic PAT, repo scope) can create/update Pages via API.
 
 on:
   workflow_dispatch:
@@ -49,7 +50,11 @@ jobs:
       - run: python -m weird.pipeline.export_site
 
       - working-directory: apps/web
-        run: npm install && npm run build
+        run: |
+          npm install
+          npm run build
+          # Ensure GitHub Pages does not run Jekyll on the export
+          touch out/.nojekyll
 
       - uses: actions/upload-artifact@v4
         with:
@@ -64,21 +69,19 @@ jobs:
           commit_user_name: we-rd-bot
           commit_user_email: we-rd-bot@users.noreply.github.com
 
-  deploy:
-    needs: build
+  probe-pages:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    outputs:
+      mode: ${{ steps.probe.outputs.mode }}
     steps:
-      - name: Diagnose / ensure Pages
-        id: pages
+      - name: Probe Pages API
+        id: probe
         env:
           WEIRD_PAGES_TOKEN: ${{ secrets.WEIRD_PAGES_TOKEN }}
         run: |
           set -uo pipefail
           api="$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/pages"
-          auth_token="${WEIRD_PAGES_TOKEN:-$GITHUB_TOKEN}"
+          auth="${WEIRD_PAGES_TOKEN:-$GITHUB_TOKEN}"
 
           code=$(curl -sS -o /tmp/pages.json -w "%{http_code}" \
             -H "Authorization: Bearer $GITHUB_TOKEN" \
@@ -86,78 +89,143 @@ jobs:
             -H "X-GitHub-Api-Version: 2022-11-28" \
             "$api" || true)
           echo "GET /pages → HTTP $code"
-          echo "----- body -----"
           cat /tmp/pages.json || true
-          echo "----------------"
 
           if [ "$code" = "200" ]; then
-            build_type=$(python -c "import json; print(json.load(open('/tmp/pages.json')).get('build_type',''))" 2>/dev/null || true)
+            build_type=$(python -c "import json; print(json.load(open('/tmp/pages.json')).get('build_type') or '')")
             echo "build_type=$build_type"
-            if [ "$build_type" = "workflow" ] || [ -z "$build_type" ]; then
-              echo "ready=true" >> "$GITHUB_OUTPUT"
+            if [ "$build_type" = "workflow" ]; then
+              echo "mode=actions" >> "$GITHUB_OUTPUT"
               exit 0
             fi
-            # Pages exists but source is a branch — try switch to workflow
-            put_code=$(curl -sS -o /tmp/pages-put.json -w "%{http_code}" -X PUT \
-              -H "Authorization: Bearer $auth_token" \
+            # Try switch to workflow with PAT/token
+            put=$(curl -sS -o /tmp/put.json -w "%{http_code}" -X PUT \
+              -H "Authorization: Bearer $auth" \
               -H "Accept: application/vnd.github+json" \
               -H "X-GitHub-Api-Version: 2022-11-28" \
-              "$api" \
-              -d '{"build_type":"workflow"}' || true)
-            echo "PUT build_type=workflow → HTTP $put_code"
-            cat /tmp/pages-put.json || true
-            if [ "$put_code" = "204" ] || [ "$put_code" = "200" ]; then
-              echo "ready=true" >> "$GITHUB_OUTPUT"
+              "$api" -d '{"build_type":"workflow"}' || true)
+            echo "PUT workflow → HTTP $put"
+            if [ "$put" = "204" ] || [ "$put" = "200" ]; then
+              echo "mode=actions" >> "$GITHUB_OUTPUT"
               exit 0
             fi
-          fi
-
-          # Try create with PAT (or GITHUB_TOKEN — usually fails, but we log it)
-          post_code=$(curl -sS -o /tmp/pages-post.json -w "%{http_code}" -X POST \
-            -H "Authorization: Bearer $auth_token" \
-            -H "Accept: application/vnd.github+json" \
-            -H "X-GitHub-Api-Version: 2022-11-28" \
-            "$api" \
-            -d '{"build_type":"workflow"}' || true)
-          echo "POST create Pages → HTTP $post_code"
-          cat /tmp/pages-post.json || true
-          if [ "$post_code" = "201" ] || [ "$post_code" = "204" ]; then
-            echo "ready=true" >> "$GITHUB_OUTPUT"
+            # Branch-based Pages already on — publish via gh-pages
+            echo "mode=branch" >> "$GITHUB_OUTPUT"
             exit 0
           fi
 
-          echo "ready=false" >> "$GITHUB_OUTPUT"
+          # Try create Actions-based Pages (needs admin PAT usually)
+          post=$(curl -sS -o /tmp/post.json -w "%{http_code}" -X POST \
+            -H "Authorization: Bearer $auth" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "$api" -d '{"build_type":"workflow"}' || true)
+          echo "POST workflow → HTTP $post"
+          cat /tmp/post.json || true
+          if [ "$post" = "201" ]; then
+            echo "mode=actions" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          # Default: publish to gh-pages branch (no Pages admin required)
+          echo "mode=branch" >> "$GITHUB_OUTPUT"
           {
-            echo "## GitHub Pages is not enabled"
+            echo "## Deploy mode: \`gh-pages\` branch"
             echo ""
-            echo "The newspaper **build succeeded** and was committed, but deploy cannot run until Pages exists."
+            echo "Actions Pages is not enabled yet (GET /pages → HTTP $code)."
+            echo "This run will push the static site to the **gh-pages** branch."
             echo ""
-            echo "### Do this once"
+            echo "### Make it live (one click)"
             echo "1. Open **[Settings → Pages](https://github.com/$GITHUB_REPOSITORY/settings/pages)**"
-            echo "2. Under **Build and deployment → Source**, choose **GitHub Actions** (not \"Deploy from a branch\")"
-            echo "3. Re-run **only the deploy job**, or run this workflow again"
-            echo ""
-            echo "Optional: add secret \`WEIRD_PAGES_TOKEN\` (classic PAT with **repo** scope) so the workflow can create Pages via API."
-            echo ""
-            echo "API probe: \`GET /pages\` returned **HTTP $code**"
+            echo "2. Source: **Deploy from a branch**"
+            echo "3. Branch: **gh-pages** / **root** → Save"
+            echo "4. Site: https://athul-s-369.github.io/WE-RD/"
           } >> "$GITHUB_STEP_SUMMARY"
 
-      - name: Stop with clear failure if Pages missing
-        if: steps.pages.outputs.ready != 'true'
-        run: |
-          echo "::error title=Enable GitHub Pages first::Open https://github.com/$GITHUB_REPOSITORY/settings/pages → Source: GitHub Actions. Build job already produced the site artifact; only deploy is blocked."
-          exit 1
-
+  deploy-actions:
+    needs: [build, probe-pages]
+    if: needs.probe-pages.outputs.mode == 'actions'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - uses: actions/download-artifact@v4
         with:
           name: weird-static-site
           path: apps/web/out
 
       - uses: actions/configure-pages@v5
-
       - uses: actions/upload-pages-artifact@v3
         with:
           path: apps/web/out
-
       - id: deployment
         uses: actions/deploy-pages@v4
+
+  deploy-branch:
+    needs: [build, probe-pages]
+    if: needs.probe-pages.outputs.mode == 'branch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: weird-static-site
+          path: site
+
+      - name: Ensure .nojekyll
+        run: touch site/.nojekyll
+
+      - name: Publish to gh-pages branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: site
+          publish_branch: gh-pages
+          user_name: we-rd-bot
+          user_email: we-rd-bot@users.noreply.github.com
+          force_orphan: true
+
+      - name: Try enable branch Pages via API
+        env:
+          WEIRD_PAGES_TOKEN: ${{ secrets.WEIRD_PAGES_TOKEN }}
+        run: |
+          set -uo pipefail
+          api="$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/pages"
+          auth="${WEIRD_PAGES_TOKEN:-$GITHUB_TOKEN}"
+          # Create legacy (branch) Pages if missing
+          code=$(curl -sS -o /tmp/pages.json -w "%{http_code}" \
+            -H "Authorization: Bearer $GITHUB_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "$api" || true)
+          if [ "$code" = "200" ]; then
+            echo "Pages already configured"
+            cat /tmp/pages.json
+            exit 0
+          fi
+          post=$(curl -sS -o /tmp/post.json -w "%{http_code}" -X POST \
+            -H "Authorization: Bearer $auth" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "$api" \
+            -d '{"build_type":"legacy","source":{"branch":"gh-pages","path":"/"}}' || true)
+          echo "POST legacy gh-pages → HTTP $post"
+          cat /tmp/post.json || true
+          if [ "$post" != "201" ]; then
+            echo "::notice::Site files are on the gh-pages branch. Enable Pages manually: Settings → Pages → Deploy from a branch → gh-pages / (root)."
+          else
+            echo "::notice::Pages enabled from gh-pages branch. Live at https://athul-s-369.github.io/WE-RD/"
+          fi
+
+      - name: Summary
+        run: |
+          {
+            echo "## Published to \`gh-pages\`"
+            echo ""
+            echo "Static newspaper is on the **gh-pages** branch."
+            echo ""
+            echo "If the site 404s, finish setup:"
+            echo "1. [Settings → Pages](https://github.com/$GITHUB_REPOSITORY/settings/pages)"
+            echo "2. **Deploy from a branch** → **gh-pages** / **/(root)**"
+            echo "3. Open https://athul-s-369.github.io/WE-RD/"
+          } >> "$GITHUB_STEP_SUMMARY"

@@ -14,19 +14,31 @@ Sunday (Actions)
 
 No always-on Postgres is required for the default publisher path.
 
-## Enable once (required)
+## Enable once (required for a public URL)
 
-`actions/configure-pages` **cannot** create a Pages site with the default `GITHUB_TOKEN`. Do this once in the GitHub UI:
+`GITHUB_TOKEN` can **deploy** files but usually **cannot create** a Pages site. Prefer Path A:
 
-1. Open **[Settings → Pages](https://github.com/Athul-S-369/WE-RD/settings/pages)**
-2. Under **Build and deployment → Source**, choose **GitHub Actions**
-3. Optional repository variable: `WEIRD_BASE_PATH` = `/WE-RD`  
-   → paper at `https://athul-s-369.github.io/WE-RD/`
-4. Optional secrets (LLM quality only): `OPENAI_API_KEY` / `ANTHROPIC_API_KEY` / `GEMINI_API_KEY` / `YOUTUBE_API_KEY`
-5. Optional auto-enable secret: `WEIRD_PAGES_TOKEN` — classic PAT with **`repo`** scope (only if you refuse the UI step)
-6. Actions → **Bootstrap Pages (first deploy)** → Run workflow on **`main`** (latest commit)
+### Path A — Branch deploy (simplest)
 
-If you see `Get Pages site failed` / `Not Found`, step 2 was skipped — enable Pages, then re-run. Do not re-run an old failed job from before Pages was enabled; start a **new** workflow run.
+Bootstrap pushes the static site to the **`gh-pages`** branch when Actions Pages is not configured.
+
+1. Run **Bootstrap Pages (first deploy)**
+2. Open **[Settings → Pages](https://github.com/Athul-S-369/WE-RD/settings/pages)**
+3. Source: **Deploy from a branch**
+4. Branch: **gh-pages** / **/(root)** → Save
+5. Paper: `https://athul-s-369.github.io/WE-RD/`
+
+### Path B — GitHub Actions deploy
+
+1. Settings → Pages → Source: **GitHub Actions**
+2. Variable `WEIRD_BASE_PATH` = `/WE-RD`
+3. Run bootstrap (uses `deploy-pages`)
+
+### Optional
+
+- LLM secrets: `OPENAI_API_KEY` / `ANTHROPIC_API_KEY` / `GEMINI_API_KEY` / `YOUTUBE_API_KEY`
+- `WEIRD_PAGES_TOKEN` (classic PAT, **repo** scope) — create/update Pages via API
+- Variable `WEIRD_BASE_PATH=/WE-RD` so asset paths work on the project site
 
 ## Weekly automation
 
