@@ -34,8 +34,8 @@ jobs:
       YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
       WEIRD_STATIC_EXPORT: "1"
       NEXT_PUBLIC_STATIC: "1"
-      # Set repository variable WEIRD_BASE_PATH to "/your-repo-name" for project Pages.
-      NEXT_PUBLIC_BASE_PATH: ${{ vars.WEIRD_BASE_PATH || '' }}
+      # Default /WE-RD for project Pages (override with repo variable WEIRD_BASE_PATH).
+      NEXT_PUBLIC_BASE_PATH: ${{ vars.WEIRD_BASE_PATH || '/WE-RD' }}
     steps:
       - uses: actions/checkout@v5
         with:

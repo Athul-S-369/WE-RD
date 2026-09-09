@@ -3,6 +3,7 @@ import { IBM_Plex_Mono, IBM_Plex_Sans, Newsreader } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { publicUrl } from "@/lib/paths";
 
 const newsreader = Newsreader({
   subsets: ["latin"],
@@ -27,7 +28,7 @@ const mono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   title: "WE-RD — The strange side of engineering",
   description: "Things worth falling down a rabbit hole for.",
-  icons: { icon: "/favicon.svg" },
+  icons: { icon: publicUrl("/favicon.svg") },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

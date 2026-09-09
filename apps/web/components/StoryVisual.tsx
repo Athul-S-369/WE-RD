@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import type { StoryCard } from "@/lib/api";
+import { publicUrl } from "@/lib/paths";
 
 type Size = "sm" | "md" | "lg";
 
@@ -20,11 +21,11 @@ function pickKind(story: Pick<StoryCard, "category" | "slug" | "tags">): string 
 }
 
 function photoFor(kind: string): string | null {
-  if (kind === "portable") return "/illustrations/illus-portable-binary.png";
-  if (kind === "browser") return "/illustrations/illus-browser-engine.png";
-  if (kind === "privilege") return "/illustrations/illus-privilege.png";
+  if (kind === "portable") return publicUrl("/illustrations/illus-portable-binary.png");
+  if (kind === "browser") return publicUrl("/illustrations/illus-browser-engine.png");
+  if (kind === "privilege") return publicUrl("/illustrations/illus-privilege.png");
   if (kind === "deep" || kind === "default" || kind === "watch") {
-    return "/illustrations/illus-rabbit-hole.png";
+    return publicUrl("/illustrations/illus-rabbit-hole.png");
   }
   return null;
 }
@@ -77,7 +78,7 @@ export function MastheadVisual() {
     <figure className="story-visual story-visual--masthead w-full max-w-full overflow-hidden border border-ink/20">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/illustrations/illus-rabbit-hole.png"
+        src={publicUrl("/illustrations/illus-rabbit-hole.png")}
         alt=""
         className="h-full w-full object-cover object-center opacity-95"
         sizes="(max-width: 768px) 100vw, 280px"
