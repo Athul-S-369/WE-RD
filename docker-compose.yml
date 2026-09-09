@@ -1,0 +1,70 @@
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_USER: weird
+      POSTGRES_PASSWORD: weird
+      POSTGRES_DB: weird
+    ports:
+      - "5432:5432"
+    volumes:
+      - weird_pg:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U weird -d weird"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  api:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    environment:
+      DATABASE_URL: postgresql+psycopg://weird:weird@db:5432/weird
+      WEIRD_CORS_ORIGINS: http://localhost:3000
+      WEIRD_ADMIN_TOKEN: ${WEIRD_ADMIN_TOKEN:-change-me-in-production}
+      WEIRD_DEMO_MODE: ${WEIRD_DEMO_MODE:-true}
+      WEIRD_LLM_PROVIDER: ${WEIRD_LLM_PROVIDER:-mock}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+      GITHUB_TOKEN: ${GITHUB_TOKEN:-}
+      YOUTUBE_API_KEY: ${YOUTUBE_API_KEY:-}
+      WEIRD_USE_PGVECTOR: ${WEIRD_USE_PGVECTOR:-false}
+      WEIRD_EMBEDDING_BACKEND: ${WEIRD_EMBEDDING_BACKEND:-auto}
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:8000
+      API_INTERNAL_URL: http://api:8000
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api
+
+  worker:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    command: ["python", "-m", "weird.pipeline.daily"]
+    profiles: ["manual"]
+    environment:
+      DATABASE_URL: postgresql+psycopg://weird:weird@db:5432/weird
+      WEIRD_LLM_PROVIDER: ${WEIRD_LLM_PROVIDER:-mock}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      GITHUB_TOKEN: ${GITHUB_TOKEN:-}
+      YOUTUBE_API_KEY: ${YOUTUBE_API_KEY:-}
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  weird_pg:

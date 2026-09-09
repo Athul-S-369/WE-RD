@@ -1,0 +1,330 @@
+{
+  "slug": "sudo-rs-memory-safe-sudo",
+  "title": "sudo-rs: privilege escalation, rewritten in Rust",
+  "dek": "Same dangerous job. Different language. Compatibility is the hard part.",
+  "description": "sudo-rs is a memory-safe implementation of sudo and su, started under ISRG Prossimo and now maintained by the Trifecta Tech Foundation \u2014 and adopted as default sudo in Ubuntu 25.10.",
+  "category": "BUILD",
+  "category_label": "WE-RD / BUILD",
+  "signal_score": 78.0,
+  "cracked_score": 88,
+  "rabbit_hole_score": 90.0,
+  "confidence": "confirmed",
+  "tags": [
+    "Rust",
+    "Linux",
+    "Security",
+    "sudo",
+    "Privilege boundaries"
+  ],
+  "is_demo": false,
+  "cracked_blurb": "Replacing sudo means your Rust has to behave like decades of C habits and policy files.",
+  "primary_source": "https://github.com/trifectatechfoundation/sudo-rs",
+  "score_dimensions": {
+    "novelty": 46.25,
+    "difficulty": 51.11,
+    "originality": 50.0,
+    "depth": 29.48,
+    "impact": 70.0,
+    "educational": 46.79,
+    "credibility": 90.0,
+    "rarity": 35.0,
+    "unexpectedness": 42.5,
+    "community": 100.0,
+    "rabbit_hole": 91.37
+  },
+  "processing_mode": "sample-issue (real primary sources)",
+  "analysis": {
+    "why_you_should_care": "sudo sits on the privilege boundary of almost every Linux box. A Rust rewrite is only interesting if behavior and policy compatibility survive contact with the real world.",
+    "what_happened": "ISRG funded a memory-safe sudo/su; Trifecta now maintains sudo-rs; Ubuntu made it the default sudo implementation in 25.10 while keeping classic sudo installable.",
+    "how_it_works": "Command-line and policy compatibility with familiar sudo semantics, implemented in Rust, with an explicit goal of shrinking memory-unsafety at the privilege boundary.",
+    "under_the_hood": "Read the upstream FAQ and tree: parsing, policy, authentication hooks, and where they deliberately do not clone every obscure sudo feature on day one.",
+    "why_they_built_it": "Memory safety for software that runs as root when you type a password.",
+    "what_was_difficult": "Matching user expectations and distribution packaging without turning sudo into a research toy.",
+    "performance": "Not the point. Correctness and safety are. Use only project/distro statements for claims.",
+    "trade_offs": "Memory safety and a clearer attack surface versus decades of edge-case compatibility in classic sudo.",
+    "what_is_surprising": "A major distro was willing to change the default for such a sacred binary.",
+    "quick_read": "sudo, but in Rust \u2014 and actually shipping as a distro default.",
+    "rabbit_holes": [
+      "privilege boundaries",
+      "Rust FFI",
+      "PAM",
+      "Linux packaging",
+      "memory safety"
+    ]
+  },
+  "security": null,
+  "leak": null,
+  "timeline": [
+    {
+      "occurred_at": "2026-09-01T00:00:00",
+      "headline": "ISRG / Prossimo funding",
+      "body": "Initial Rust reimplementation of sudo/su begins.",
+      "source_url": null
+    },
+    {
+      "occurred_at": "2026-09-15T00:00:00",
+      "headline": "Trifecta maintenance",
+      "body": "Long-term stewardship moves to Trifecta Tech Foundation.",
+      "source_url": null
+    },
+    {
+      "occurred_at": "2026-09-29T00:00:00",
+      "headline": "Ubuntu default path",
+      "body": "Ubuntu adopts sudo-rs as default in 25.10 (C sudo remains available).",
+      "source_url": null
+    }
+  ],
+  "videos": [],
+  "projects": [
+    {
+      "name": "trifectatechfoundation/sudo-rs",
+      "url": "https://github.com/trifectatechfoundation/sudo-rs",
+      "host": "github",
+      "stars": 4300,
+      "language": "Rust",
+      "description": "Memory-safe sudo and su."
+    }
+  ],
+  "sources": [
+    {
+      "role": "primary",
+      "url": "https://github.com/trifectatechfoundation/sudo-rs",
+      "title": "sudo-rs: privilege escalation, rewritten in Rust",
+      "credibility_kind": "official_project_repository",
+      "credibility_score": 0.9
+    },
+    {
+      "role": "supporting",
+      "url": "https://trifectatech.org/projects/sudo-rs/",
+      "title": "Trifecta: sudo-rs project",
+      "credibility_kind": "original_author",
+      "credibility_score": 0.85
+    },
+    {
+      "role": "supporting",
+      "url": "https://www.memorysafety.org/blog/sudo-rs-headed-to-ubuntu/",
+      "title": "Prossimo: sudo-rs headed to Ubuntu",
+      "credibility_kind": "respected_technical_publication",
+      "credibility_score": 0.85
+    }
+  ],
+  "created_at": "2026-09-09T17:56:43",
+  "score_breakdown": {
+    "dimensions": {
+      "novelty": 46.25,
+      "difficulty": 51.11,
+      "originality": 50.0,
+      "depth": 29.48,
+      "impact": 70,
+      "educational": 46.79,
+      "credibility": 90.0,
+      "rarity": 35.0,
+      "unexpectedness": 42.5,
+      "community": 100.0,
+      "rabbit_hole": 91.37
+    },
+    "contributions": {
+      "novelty": 4.96,
+      "difficulty": 5.93,
+      "originality": 4.91,
+      "depth": 3.16,
+      "impact": 4.38,
+      "educational": 4.18,
+      "credibility": 7.23,
+      "rarity": 3.44,
+      "unexpectedness": 4.55,
+      "community": 3.12,
+      "rabbit_hole": 9.38
+    },
+    "weights": {},
+    "explanations": {},
+    "rabbit_paths": [
+      "privilege boundaries",
+      "Rust FFI",
+      "PAM",
+      "Linux packaging",
+      "memory safety"
+    ]
+  },
+  "related": [
+    {
+      "slug": "xz-utils-backdoor-cve-2024-3094",
+      "title": "xz-utils backdoor: when the supply chain became the exploit",
+      "category": "BREAK",
+      "signal_score": 78.0,
+      "score": 0.4993,
+      "shared": [
+        "linux",
+        "security"
+      ]
+    }
+  ],
+  "source_graph": {
+    "nodes": [
+      {
+        "kind": "story",
+        "id": "story:sudo-rs-memory-safe-sudo",
+        "label": "sudo-rs: privilege escalation, rewritten in Rust",
+        "url": null
+      },
+      {
+        "kind": "source",
+        "id": "source:https://github.com/trifectatechfoundation/sudo-rs",
+        "label": "sudo-rs: privilege escalation, rewritten in Rust",
+        "url": "https://github.com/trifectatechfoundation/sudo-rs"
+      },
+      {
+        "kind": "source",
+        "id": "source:https://trifectatech.org/projects/sudo-rs/",
+        "label": "Trifecta: sudo-rs project",
+        "url": "https://trifectatech.org/projects/sudo-rs/"
+      },
+      {
+        "kind": "source",
+        "id": "source:https://www.memorysafety.org/blog/sudo-rs-headed-to-ubuntu/",
+        "label": "Prossimo: sudo-rs headed to Ubuntu",
+        "url": "https://www.memorysafety.org/blog/sudo-rs-headed-to-ubuntu/"
+      },
+      {
+        "kind": "project",
+        "id": "project:https://github.com/trifectatechfoundation/sudo-rs",
+        "label": "trifectatechfoundation/sudo-rs",
+        "url": "https://github.com/trifectatechfoundation/sudo-rs"
+      },
+      {
+        "kind": "concept",
+        "id": "concept:rust",
+        "label": "Rust",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:linux",
+        "label": "Linux",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:security",
+        "label": "Security",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:sudo",
+        "label": "sudo",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:privilege boundaries",
+        "label": "Privilege boundaries",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:rust ffi",
+        "label": "Rust FFI",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:pam",
+        "label": "PAM",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:linux packaging",
+        "label": "Linux packaging",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:memory safety",
+        "label": "memory safety",
+        "url": null
+      },
+      {
+        "kind": "related_story",
+        "id": "story:xz-utils-backdoor-cve-2024-3094",
+        "label": "xz-utils backdoor: when the supply chain became the exploit",
+        "url": "/story/xz-utils-backdoor-cve-2024-3094"
+      }
+    ],
+    "edges": [
+      {
+        "source": "story:sudo-rs-memory-safe-sudo",
+        "target": "source:https://github.com/trifectatechfoundation/sudo-rs",
+        "relation": "primary"
+      },
+      {
+        "source": "story:sudo-rs-memory-safe-sudo",
+        "target": "source:https://trifectatech.org/projects/sudo-rs/",
+        "relation": "supporting"
+      },
+      {
+        "source": "story:sudo-rs-memory-safe-sudo",
+        "target": "source:https://www.memorysafety.org/blog/sudo-rs-headed-to-ubuntu/",
+        "relation": "supporting"
+      },
+      {
+        "source": "story:sudo-rs-memory-safe-sudo",
+        "target": "project:https://github.com/trifectatechfoundation/sudo-rs",
+        "relation": "code"
+      },
+      {
+        "source": "story:sudo-rs-memory-safe-sudo",
+        "target": "concept:rust",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:sudo-rs-memory-safe-sudo",
+        "target": "concept:linux",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:sudo-rs-memory-safe-sudo",
+        "target": "concept:security",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:sudo-rs-memory-safe-sudo",
+        "target": "concept:sudo",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:sudo-rs-memory-safe-sudo",
+        "target": "concept:privilege boundaries",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:sudo-rs-memory-safe-sudo",
+        "target": "concept:rust ffi",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:sudo-rs-memory-safe-sudo",
+        "target": "concept:pam",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:sudo-rs-memory-safe-sudo",
+        "target": "concept:linux packaging",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:sudo-rs-memory-safe-sudo",
+        "target": "concept:memory safety",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:sudo-rs-memory-safe-sudo",
+        "target": "story:xz-utils-backdoor-cve-2024-3094",
+        "relation": "related"
+      }
+    ]
+  },
+  "youtube_status": "NO VIDEO FOUND",
+  "editorial": {}
+}

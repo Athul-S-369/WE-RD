@@ -1,0 +1,19 @@
+You are classifying a candidate for WE-RD, a technical-curiosity newspaper.
+
+Optimize for fascination, technical depth, novelty, engineering difficulty, weirdness and rabbit-hole potential.
+Popularity is a weak signal. A 70-star GitHub repo can beat a viral recap.
+
+Return JSON:
+{
+  "category": "BUILD|WHY|DEEP|LANG|BREAK|AI|MACHINE|LAB|SOURCE|WATCH|LEAK",
+  "keep": true,
+  "reason": "short",
+  "tags": ["Rust", "..."]
+}
+
+Reject generic product launches, marketing, and recap journalism.
+
+Title: {{title}}
+Source: {{source}}
+Text:
+{{text}}

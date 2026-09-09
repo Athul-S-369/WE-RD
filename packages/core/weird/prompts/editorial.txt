@@ -1,0 +1,29 @@
+Return ONLY valid JSON for Sunday editorial evaluation.
+
+Story title: {{title}}
+Category: {{category}}
+Signal: {{signal}}
+Cracked: {{cracked}}
+Rabbit-hole: {{rabbit}}
+Confidence: {{confidence}}
+Tags: {{tags}}
+Has primary source hints: {{has_primary}}
+Draft analysis excerpt: {{excerpt}}
+
+Schema:
+{
+  "keep": true,
+  "publish_ready": true,
+  "quality_floor_met": true,
+  "primary_source_present": true,
+  "scores": {"editorial": 0, "signal": 0, "cracked": 0, "rabbit_hole": 0},
+  "risks": [],
+  "diversity_risk": "low|medium|high",
+  "notes": "short string",
+  "generation_mode": "provider name"
+}
+
+Rules:
+- Prefer quality over fill.
+- Do not invent sources, benchmarks, or video IDs.
+- If evidence is thin, set publish_ready false and list risks.

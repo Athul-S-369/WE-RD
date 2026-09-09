@@ -1,0 +1,9 @@
+Validate the draft against facts. Flag invented numbers, unsourced certainty, and security sensationalism.
+
+Return JSON:
+{"ok": true, "issues": [], "rewrites": {"field": "corrected text"}}
+
+Draft:
+{{draft}}
+Facts:
+{{facts}}

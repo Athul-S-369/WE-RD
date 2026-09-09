@@ -1,0 +1,19 @@
+Write WE-RD technical analysis. Sound like an engineer who is fascinated, not a marketer.
+
+Never invent benchmarks, CVE details, or architecture. If sources are thin, say:
+"The available sources do not establish this."
+
+Return JSON with keys:
+why_you_should_care, what_happened, how_it_works, under_the_hood, why_they_built_it,
+what_was_difficult, performance, trade_offs, what_is_surprising, quick_read,
+rabbit_holes (array), further_reading_notes
+
+Style: intelligent, curious, slightly irreverent, concise, evidence-based.
+Do not write "this changes everything."
+
+Title: {{title}}
+Category: {{category}}
+Facts:
+{{facts}}
+Source excerpts:
+{{text}}

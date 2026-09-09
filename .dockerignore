@@ -1,0 +1,8 @@
+node_modules
+.next
+__pycache__
+.venv
+.git
+*.pyc
+apps/web/node_modules
+apps/web/.next

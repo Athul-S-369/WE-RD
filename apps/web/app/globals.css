@@ -1,0 +1,221 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --paper: #f3ead8;
+  --paper-deep: #ddd2bc;
+  --ink: #14120e;
+  --accent: #8f1a12;
+  --muted: #6a6458;
+}
+
+html,
+body {
+  background: var(--paper-deep);
+  color: var(--ink);
+  overflow-x: clip;
+}
+
+body {
+  background-image:
+    radial-gradient(rgba(20, 18, 14, 0.045) 0.65px, transparent 0.65px),
+    linear-gradient(180deg, #ebe2cf 0%, var(--paper-deep) 55%, #d4c8ae 100%);
+  background-size: 5px 5px, 100% 100%;
+}
+
+::selection {
+  background: var(--accent);
+  color: #f3ead8;
+}
+
+.masthead-hyphen {
+  display: inline-block;
+  transform: translateY(-0.06em);
+  color: var(--accent);
+}
+
+@layer components {
+  .paper-sheet {
+    background: var(--paper);
+    box-shadow:
+      0 0 0 1px rgba(20, 18, 14, 0.1),
+      0 22px 48px rgba(20, 18, 14, 0.14);
+    overflow: hidden;
+  }
+
+  .rule-double {
+    border-top: 3px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+    padding: 0.4rem 0;
+    clear: both;
+  }
+
+  .rule-double-b {
+    border-bottom: 3px solid var(--ink);
+    box-shadow: inset 0 -1px 0 var(--ink);
+  }
+
+  /* Gap-as-rule: one ink line between cells, no stacked/overlapping borders */
+  .bento {
+    display: grid;
+    gap: 1px;
+    background: var(--ink);
+    border: 2px solid var(--ink);
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  .bento-cell {
+    background: #f7f0e2;
+    padding: 0.75rem 0.85rem;
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;
+    position: relative;
+    transition: background-color 160ms ease;
+  }
+
+  @media (min-width: 640px) {
+    .bento-cell {
+      padding: 1rem 1.05rem;
+    }
+  }
+
+  .bento-cell:hover {
+    background: #faf6ec;
+  }
+
+  .bento-cell-ink {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .bento-cell-ink:hover {
+    background: #1c1914;
+  }
+
+  .drop-cap::first-letter {
+    float: left;
+    font-family: var(--font-newsreader), Georgia, serif;
+    font-size: 2.15rem;
+    line-height: 0.85;
+    padding: 0.12rem 0.3rem 0 0;
+    color: var(--accent);
+  }
+
+  @media (min-width: 768px) {
+    .drop-cap::first-letter {
+      font-size: 2.75rem;
+      padding: 0.15rem 0.4rem 0 0;
+    }
+  }
+
+  .meter-bar {
+    overflow: hidden;
+    white-space: nowrap;
+    letter-spacing: 0.04em;
+    max-width: 100%;
+    font-size: clamp(0.55rem, 2.8vw, 0.75rem);
+  }
+
+  .folio {
+    font-family: var(--font-mono), ui-monospace, monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .story-visual {
+    position: relative;
+    background: #efe6d4;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .story-visual img,
+  .story-visual svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Fluid frames: aspect-ratio + max-height so photos/diagrams fit phones and desktops */
+  .story-visual--sm {
+    aspect-ratio: 2 / 1;
+    max-height: 7.5rem;
+  }
+
+  .story-visual--md {
+    aspect-ratio: 16 / 9;
+    max-height: 11rem;
+  }
+
+  .story-visual--lg {
+    aspect-ratio: 16 / 9;
+    max-height: 12.5rem;
+  }
+
+  .story-visual--masthead {
+    aspect-ratio: 16 / 9;
+    max-height: 8.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .story-visual--sm {
+      max-height: 8.5rem;
+    }
+    .story-visual--md {
+      max-height: 12.5rem;
+    }
+    .story-visual--lg {
+      aspect-ratio: 2 / 1;
+      max-height: 15rem;
+    }
+    .story-visual--masthead {
+      aspect-ratio: 3 / 2;
+      max-height: 9.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .story-visual--lg {
+      max-height: 17rem;
+    }
+  }
+
+  .story-rail + .story-rail {
+    border-top: 1px solid rgba(20, 18, 14, 0.18);
+    margin-top: 0.85rem;
+    padding-top: 0.85rem;
+  }
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-up {
+    animation: fade-up 0.45s ease both;
+  }
+
+  .animate-fade-up-delay {
+    animation: fade-up 0.55s ease 0.06s both;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up,
+  .animate-fade-up-delay,
+  .bento-cell {
+    animation: none;
+    transition: none;
+  }
+}

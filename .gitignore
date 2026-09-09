@@ -1,0 +1,72 @@
+# Environment & secrets
+.env
+.env.*
+!.env.example
+!.env*.example
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+*.egg-info/
+.eggs/
+dist/
+build/
+*.egg
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+coverage/
+.tox/
+.nox/
+*.pyo
+
+# Node / Next.js
+node_modules/
+apps/web/.next/
+apps/web/out/
+.next/
+out/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+apps/web/tsconfig.tsbuildinfo
+*.tsbuildinfo
+
+# Local databases — keep the GitHub corpus DB trackable
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+!data/weird.db
+weird-smoke.db
+weird-local.db
+data/local/
+
+# Runtime / uploads
+uploads/
+tmp/
+temp/
+*.log
+
+# OS / editors
+.DS_Store
+Thumbs.db
+Desktop.ini
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Docker / local overrides
+docker-compose.override.yml

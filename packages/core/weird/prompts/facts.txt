@@ -1,0 +1,13 @@
+Extract only claims that are explicitly supported by the sources. Do not invent.
+
+Return JSON:
+{
+  "facts": [{"claim": "...", "supported": true, "source_hint": "..."}],
+  "unsupported": ["..."]
+}
+
+If evidence is missing, put the idea in unsupported. Never upgrade rumor to fact.
+
+Title: {{title}}
+Sources:
+{{sources}}

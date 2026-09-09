@@ -1,0 +1,111 @@
+name: Sunday publish → GitHub Pages
+
+# End of week: editorial selection, export static newspaper, deploy Pages.
+# Idempotent — safe to re-run the same Sunday.
+
+on:
+  schedule:
+    - cron: "0 8 * * 0" # Sunday 08:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages-sunday
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    env:
+      DATABASE_URL: sqlite:///./data/weird.db
+      WEIRD_DEMO_MODE: "false"
+      WEIRD_LLM_PROVIDER: ${{ vars.WEIRD_LLM_PROVIDER || 'mock' }}
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+      WEIRD_STATIC_EXPORT: "1"
+      NEXT_PUBLIC_STATIC: "1"
+      # Set repository variable WEIRD_BASE_PATH to "/your-repo-name" for project Pages.
+      NEXT_PUBLIC_BASE_PATH: ${{ vars.WEIRD_BASE_PATH || '' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install WE-RD
+        run: pip install .
+
+      - name: Ensure data directory
+        run: mkdir -p data/pipeline apps/web/public/content
+
+      - name: Init schema
+        run: python -m weird.db
+
+      - name: Seed demo if corpus empty
+        run: |
+          python - <<'PY'
+          import os
+          from weird.db import get_session_factory, init_db
+          from weird.models import Story
+          from weird.seed import seed
+          init_db()
+          s = get_session_factory()()
+          try:
+              if s.query(Story).count() == 0:
+                  os.environ["WEIRD_DEMO_MODE"] = "true"
+                  seed(s)
+                  s.commit()
+                  print("seeded demo corpus")
+              else:
+                  print(f"corpus has {s.query(Story).count()} stories")
+          finally:
+              s.close()
+          PY
+
+      - name: Run Sunday publication + export
+        run: python -m weird.pipeline.sunday
+
+      - name: Install web deps
+        working-directory: apps/web
+        run: npm install
+
+      - name: Build static newspaper
+        working-directory: apps/web
+        run: npm run build
+
+      - name: Commit data + exported content
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore(publish): Sunday WE-RD edition + Pages content"
+          file_pattern: data/ apps/web/public/content/
+          commit_user_name: we-rd-bot
+          commit_user_email: we-rd-bot@users.noreply.github.com
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: apps/web/out
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

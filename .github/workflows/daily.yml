@@ -1,0 +1,53 @@
+name: Daily discovery (GitHub corpus)
+
+# Collects technical curiosities into data/weird.db in this repository.
+# No external database required — the repo IS the week's notebook.
+
+on:
+  schedule:
+    - cron: "0 6 * * *" # every day 06:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  daily:
+    runs-on: ubuntu-latest
+    env:
+      DATABASE_URL: sqlite:///./data/weird.db
+      WEIRD_DEMO_MODE: "false"
+      WEIRD_LLM_PROVIDER: ${{ vars.WEIRD_LLM_PROVIDER || 'mock' }}
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install WE-RD
+        run: pip install .
+
+      - name: Ensure data directory
+        run: mkdir -p data/pipeline
+
+      - name: Init schema
+        run: python -m weird.db
+
+      - name: Run daily discovery
+        run: python -m weird.pipeline.daily
+
+      - name: Commit corpus updates
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore(data): daily WE-RD discovery"
+          file_pattern: data/
+          commit_user_name: we-rd-bot
+          commit_user_email: we-rd-bot@users.noreply.github.com

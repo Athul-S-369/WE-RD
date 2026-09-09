@@ -1,0 +1,63 @@
+name: Bootstrap Pages (first deploy)
+
+# One-click: seed demo corpus, export static site, deploy to GitHub Pages.
+# Use this once after enabling Pages, or anytime you want a fresh demo issue online.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages-bootstrap
+  cancel-in-progress: true
+
+jobs:
+  bootstrap:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    env:
+      DATABASE_URL: sqlite:///./data/weird.db
+      WEIRD_DEMO_MODE: "true"
+      WEIRD_LLM_PROVIDER: mock
+      WEIRD_STATIC_EXPORT: "1"
+      NEXT_PUBLIC_STATIC: "1"
+      NEXT_PUBLIC_BASE_PATH: ${{ vars.WEIRD_BASE_PATH || '' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - run: pip install .
+      - run: mkdir -p data/pipeline apps/web/public/content
+      - run: python -m weird.db
+      - run: python -m weird.seed
+      - run: python -m weird.pipeline.export_site
+
+      - working-directory: apps/web
+        run: npm install && npm run build
+
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore(publish): bootstrap demo edition for GitHub Pages"
+          file_pattern: data/ apps/web/public/content/
+          commit_user_name: we-rd-bot
+          commit_user_email: we-rd-bot@users.noreply.github.com
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: apps/web/out
+      - id: deployment
+        uses: actions/deploy-pages@v4
