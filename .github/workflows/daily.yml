@@ -49,5 +49,5 @@ jobs:
         with:
           commit_message: "chore(data): daily WE-RD discovery"
           file_pattern: data/
-          commit_user_name: we-rd-bot
-          commit_user_email: we-rd-bot@users.noreply.github.com
+          commit_user_name: Athul S
+          commit_user_email: 176425883+Athul-S-369@users.noreply.github.com

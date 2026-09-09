@@ -66,8 +66,8 @@ jobs:
         with:
           commit_message: "chore(publish): bootstrap demo edition for GitHub Pages"
           file_pattern: data/ apps/web/public/content/
-          commit_user_name: we-rd-bot
-          commit_user_email: we-rd-bot@users.noreply.github.com
+          commit_user_name: Athul S
+          commit_user_email: 176425883+Athul-S-369@users.noreply.github.com
 
   probe-pages:
     runs-on: ubuntu-latest
@@ -183,8 +183,8 @@ jobs:
           github_token: ${{ github.token }}
           publish_dir: site
           publish_branch: gh-pages
-          user_name: we-rd-bot
-          user_email: we-rd-bot@users.noreply.github.com
+          user_name: Athul S
+          user_email: 176425883+Athul-S-369@users.noreply.github.com
           force_orphan: true
 
       - name: Try enable branch Pages via API

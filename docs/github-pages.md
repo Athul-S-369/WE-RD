@@ -48,6 +48,8 @@ Bootstrap pushes the static site to the **`gh-pages`** branch when Actions Pages
 | `sunday.yml` | Sunday 08:00 UTC | Publish issue, export `apps/web/public/content/`, deploy Pages |
 | `pages-bootstrap.yml` | Manual | Seed demo + first Pages deploy |
 
+Pipeline commits are authored as **Athul S** (`176425883+Athul-S-369@users.noreply.github.com`) so they count on the [contribution graph](https://github.com/Athul-S-369) when they land on `main` or `gh-pages`.
+
 ## Corpus layout
 
 ```
