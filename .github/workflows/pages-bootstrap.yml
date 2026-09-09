@@ -1,7 +1,8 @@
 name: Bootstrap Pages (first deploy)
 
 # One-click: seed demo corpus, export static site, deploy to GitHub Pages.
-# Use this once after enabling Pages, or anytime you want a fresh demo issue online.
+# Prerequisite: Settings → Pages → Source = GitHub Actions
+# (GITHUB_TOKEN cannot create a Pages site; see docs/github-pages.md)
 
 on:
   workflow_dispatch:
@@ -31,6 +32,36 @@ jobs:
     steps:
       - uses: actions/checkout@v5
 
+      # Fail fast: configure-pages enablement does NOT work with GITHUB_TOKEN.
+      - name: Verify GitHub Pages is enabled
+        env:
+          WEIRD_PAGES_TOKEN: ${{ secrets.WEIRD_PAGES_TOKEN }}
+        run: |
+          set -euo pipefail
+          api="$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/pages"
+          code=$(curl -sS -o /tmp/pages.json -w "%{http_code}" \
+            -H "Authorization: Bearer $GITHUB_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "$api")
+          if [ "$code" = "200" ]; then
+            echo "Pages site OK"
+            cat /tmp/pages.json
+            exit 0
+          fi
+          if [ -n "${WEIRD_PAGES_TOKEN:-}" ]; then
+            echo "Creating Pages site (build_type=workflow) via WEIRD_PAGES_TOKEN…"
+            curl -fsS -X POST \
+              -H "Authorization: Bearer $WEIRD_PAGES_TOKEN" \
+              -H "Accept: application/vnd.github+json" \
+              -H "X-GitHub-Api-Version: 2022-11-28" \
+              "$api" \
+              -d '{"build_type":"workflow"}'
+            exit 0
+          fi
+          echo "::error title=GitHub Pages not enabled::Open https://github.com/$GITHUB_REPOSITORY/settings/pages → Build and deployment → Source: GitHub Actions. Save, then re-run this workflow. Optional: add secret WEIRD_PAGES_TOKEN (classic PAT with repo scope) to auto-create Pages."
+          exit 1
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -56,10 +87,7 @@ jobs:
           commit_user_name: we-rd-bot
           commit_user_email: we-rd-bot@users.noreply.github.com
 
-      # enablement: true creates Pages (Actions source) on first run if unset
       - uses: actions/configure-pages@v5
-        with:
-          enablement: true
       - uses: actions/upload-pages-artifact@v3
         with:
           path: apps/web/out

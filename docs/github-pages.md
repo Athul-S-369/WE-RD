@@ -14,24 +14,19 @@ Sunday (Actions)
 
 No always-on Postgres is required for the default publisher path.
 
-## Enable once
+## Enable once (required)
 
-1. Push this repository to GitHub.
-2. Prefer **Settings → Pages → Source: GitHub Actions** (or let bootstrap auto-enable via `configure-pages` `enablement: true`).
-3. Repository variable (required for project sites):
-   - `WEIRD_BASE_PATH` = `/WE-RD` → paper at `https://<user>.github.io/WE-RD/`
-4. Optional secrets (quality accelerators, not required):
-   - `OPENAI_API_KEY` / `ANTHROPIC_API_KEY` / `GEMINI_API_KEY`
-   - `YOUTUBE_API_KEY`
-   - `GITHUB_TOKEN` is provided automatically; a PAT only helps rate limits
-5. Run workflow **Bootstrap Pages (first deploy)** manually.
+`actions/configure-pages` **cannot** create a Pages site with the default `GITHUB_TOKEN`. Do this once in the GitHub UI:
 
-If bootstrap fails with `Get Pages site failed` / `Not Found`, Pages was never created — set Source to **GitHub Actions** in Settings, then re-run the workflow.
+1. Open **[Settings → Pages](https://github.com/Athul-S-369/WE-RD/settings/pages)**
+2. Under **Build and deployment → Source**, choose **GitHub Actions**
+3. Optional repository variable: `WEIRD_BASE_PATH` = `/WE-RD`  
+   → paper at `https://athul-s-369.github.io/WE-RD/`
+4. Optional secrets (LLM quality only): `OPENAI_API_KEY` / `ANTHROPIC_API_KEY` / `GEMINI_API_KEY` / `YOUTUBE_API_KEY`
+5. Optional auto-enable secret: `WEIRD_PAGES_TOKEN` — classic PAT with **`repo`** scope (only if you refuse the UI step)
+6. Actions → **Bootstrap Pages (first deploy)** → Run workflow on **`main`** (latest commit)
 
-Your newspaper will appear at:
-
-`https://<user>.github.io/<repo>/`  
-(or your custom domain)
+If you see `Get Pages site failed` / `Not Found`, step 2 was skipped — enable Pages, then re-run. Do not re-run an old failed job from before Pages was enabled; start a **new** workflow run.
 
 ## Weekly automation
 
