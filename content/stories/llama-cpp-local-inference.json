@@ -1,0 +1,312 @@
+{
+  "slug": "llama-cpp-local-inference",
+  "title": "llama.cpp: large models on the machines you already own",
+  "dek": "Quantization and careful C/C++ \u2014 not another API wrapper.",
+  "description": "llama.cpp is a popular open-source project for running LLaMA-family and related models locally, with a focus on efficient CPU/GPU inference and quantization formats.",
+  "category": "AI",
+  "category_label": "WE-RD / AI",
+  "signal_score": 78.0,
+  "cracked_score": 85,
+  "rabbit_hole_score": 89.0,
+  "confidence": "confirmed",
+  "tags": [
+    "AI",
+    "C++",
+    "Inference",
+    "Quantization",
+    "GGUF"
+  ],
+  "is_demo": false,
+  "cracked_blurb": "The cracked move was treating consumer hardware as a first-class inference target.",
+  "primary_source": "https://github.com/ggerganov/llama.cpp",
+  "score_dimensions": {
+    "novelty": 35.0,
+    "difficulty": 52.22,
+    "originality": 40.0,
+    "depth": 37.71,
+    "impact": 66.0,
+    "educational": 50.08,
+    "credibility": 90.0,
+    "rarity": 30.0,
+    "unexpectedness": 30.0,
+    "community": 100.0,
+    "rabbit_hole": 85.43
+  },
+  "processing_mode": "sample-issue (real primary sources)",
+  "analysis": {
+    "why_you_should_care": "A lot of 'AI infrastructure' is rental GPUs. llama.cpp made local inference a systems programming problem: memory layouts, quantization, and backends.",
+    "what_happened": "Georgi Gerganov and contributors built a widely used C/C++ inference stack for running LLMs locally across CPUs and various accelerators.",
+    "how_it_works": "Model weights in compact formats (e.g. GGUF), quantized matmuls, and backends that map work onto CPU SIMD / GPU APIs depending on build.",
+    "under_the_hood": "Look at ggml primitives, quantization types, and how backends register kernels. The README's hardware matrix is part of the design.",
+    "why_they_built_it": "So running a model does not require asking permission from a cloud.",
+    "what_was_difficult": "Numerics under quantization and keeping performance portable without forking the universe per vendor.",
+    "performance": "Tokens/sec depend on model, quant, and hardware. Cite your own runs or project examples \u2014 do not invent a leaderboard.",
+    "trade_offs": "Local control and efficiency versus the absolute ceiling of huge datacenter kernels.",
+    "what_is_surprising": "How much of the ecosystem's practical freedom came from a ruthlessly pragmatic C++ codebase.",
+    "quick_read": "Local LLM inference as a systems project.",
+    "rabbit_holes": [
+      "quantization",
+      "GGUF",
+      "SIMD",
+      "KV cache",
+      "ggml"
+    ]
+  },
+  "security": null,
+  "leak": null,
+  "timeline": [
+    {
+      "occurred_at": "2026-09-01T00:00:00",
+      "headline": "Primary source published",
+      "body": "llama.cpp is a popular open-source project for running LLaMA-family and related models locally, with a focus on efficient CPU/GPU inference and quantization formats.",
+      "source_url": null
+    }
+  ],
+  "videos": [],
+  "projects": [
+    {
+      "name": "ggerganov/llama.cpp",
+      "url": "https://github.com/ggerganov/llama.cpp",
+      "host": "github",
+      "stars": 80000,
+      "language": "C++",
+      "description": "LLM inference in C/C++."
+    }
+  ],
+  "sources": [
+    {
+      "role": "primary",
+      "url": "https://github.com/ggerganov/llama.cpp",
+      "title": "llama.cpp: large models on the machines you already own",
+      "credibility_kind": "official_project_repository",
+      "credibility_score": 0.9
+    }
+  ],
+  "created_at": "2026-09-09T17:56:43",
+  "score_breakdown": {
+    "dimensions": {
+      "novelty": 35.0,
+      "difficulty": 52.22,
+      "originality": 40.0,
+      "depth": 37.71,
+      "impact": 66,
+      "educational": 50.08,
+      "credibility": 90.0,
+      "rarity": 30.0,
+      "unexpectedness": 30.0,
+      "community": 100.0,
+      "rabbit_hole": 85.43
+    },
+    "contributions": {
+      "novelty": 3.75,
+      "difficulty": 6.06,
+      "originality": 3.93,
+      "depth": 4.04,
+      "impact": 4.12,
+      "educational": 4.47,
+      "credibility": 7.23,
+      "rarity": 2.95,
+      "unexpectedness": 3.21,
+      "community": 3.12,
+      "rabbit_hole": 8.77
+    },
+    "weights": {},
+    "explanations": {},
+    "rabbit_paths": [
+      "quantization",
+      "GGUF",
+      "SIMD",
+      "KV cache",
+      "ggml"
+    ]
+  },
+  "related": [
+    {
+      "slug": "serenityos-from-scratch",
+      "title": "SerenityOS: a desktop OS someone is actually writing",
+      "category": "MACHINE",
+      "signal_score": 78.0,
+      "score": 0.3198,
+      "shared": [
+        "c++"
+      ]
+    },
+    {
+      "slug": "ladybird-independent-browser-engine",
+      "title": "Ladybird: a browser engine that refuses to be a skin",
+      "category": "BUILD",
+      "signal_score": 78.0,
+      "score": 0.2545,
+      "shared": [
+        "c++"
+      ]
+    },
+    {
+      "slug": "watch-andreas-kling-ladybird-june-2024",
+      "title": "Watch: Andreas Kling's Ladybird engine updates",
+      "category": "WATCH",
+      "signal_score": 78.0,
+      "score": 0.2306,
+      "shared": [
+        "c++"
+      ]
+    }
+  ],
+  "source_graph": {
+    "nodes": [
+      {
+        "kind": "story",
+        "id": "story:llama-cpp-local-inference",
+        "label": "llama.cpp: large models on the machines you already own",
+        "url": null
+      },
+      {
+        "kind": "source",
+        "id": "source:https://github.com/ggerganov/llama.cpp",
+        "label": "llama.cpp: large models on the machines you already own",
+        "url": "https://github.com/ggerganov/llama.cpp"
+      },
+      {
+        "kind": "project",
+        "id": "project:https://github.com/ggerganov/llama.cpp",
+        "label": "ggerganov/llama.cpp",
+        "url": "https://github.com/ggerganov/llama.cpp"
+      },
+      {
+        "kind": "concept",
+        "id": "concept:ai",
+        "label": "AI",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:c++",
+        "label": "C++",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:inference",
+        "label": "Inference",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:quantization",
+        "label": "Quantization",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:gguf",
+        "label": "GGUF",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:simd",
+        "label": "SIMD",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:kv cache",
+        "label": "KV cache",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:ggml",
+        "label": "ggml",
+        "url": null
+      },
+      {
+        "kind": "related_story",
+        "id": "story:serenityos-from-scratch",
+        "label": "SerenityOS: a desktop OS someone is actually writing",
+        "url": "/story/serenityos-from-scratch"
+      },
+      {
+        "kind": "related_story",
+        "id": "story:ladybird-independent-browser-engine",
+        "label": "Ladybird: a browser engine that refuses to be a skin",
+        "url": "/story/ladybird-independent-browser-engine"
+      },
+      {
+        "kind": "related_story",
+        "id": "story:watch-andreas-kling-ladybird-june-2024",
+        "label": "Watch: Andreas Kling's Ladybird engine updates",
+        "url": "/story/watch-andreas-kling-ladybird-june-2024"
+      }
+    ],
+    "edges": [
+      {
+        "source": "story:llama-cpp-local-inference",
+        "target": "source:https://github.com/ggerganov/llama.cpp",
+        "relation": "primary"
+      },
+      {
+        "source": "story:llama-cpp-local-inference",
+        "target": "project:https://github.com/ggerganov/llama.cpp",
+        "relation": "code"
+      },
+      {
+        "source": "story:llama-cpp-local-inference",
+        "target": "concept:ai",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:llama-cpp-local-inference",
+        "target": "concept:c++",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:llama-cpp-local-inference",
+        "target": "concept:inference",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:llama-cpp-local-inference",
+        "target": "concept:quantization",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:llama-cpp-local-inference",
+        "target": "concept:gguf",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:llama-cpp-local-inference",
+        "target": "concept:simd",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:llama-cpp-local-inference",
+        "target": "concept:kv cache",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:llama-cpp-local-inference",
+        "target": "concept:ggml",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:llama-cpp-local-inference",
+        "target": "story:serenityos-from-scratch",
+        "relation": "related"
+      },
+      {
+        "source": "story:llama-cpp-local-inference",
+        "target": "story:ladybird-independent-browser-engine",
+        "relation": "related"
+      },
+      {
+        "source": "story:llama-cpp-local-inference",
+        "target": "story:watch-andreas-kling-ladybird-june-2024",
+        "relation": "related"
+      }
+    ]
+  },
+  "youtube_status": "NO VIDEO FOUND",
+  "editorial": {}
+}
