@@ -44,12 +44,15 @@ Bootstrap pushes the static site to the **`gh-pages`** branch when Actions Pages
 
 | Workflow | When | What |
 | --- | --- | --- |
-| `daily.yml` | Every day 06:00 UTC | Discovery into `data/weird.db`, commit |
-| `sunday.yml` | Sunday 08:00 UTC | Publish issue, export `apps/web/public/content/`, deploy Pages |
+| `daily.yml` | Every day **06:00 UTC** (11:30 IST) | Discovery into `data/weird.db`, commit |
+| `sunday.yml` | Sunday **08:00 UTC** (13:30 IST) | Publish issue, export content, deploy `gh-pages` (or Actions Pages) |
 | `pages-bootstrap.yml` | Manual | Seed demo + first Pages deploy |
+
+GitHub cron can lag by minutes–hours. You can always run **Sunday publish → GitHub Pages** manually via **Actions → Run workflow**.
 
 Pipeline commits are authored as **Athul S** (`176425883+Athul-S-369@users.noreply.github.com`) so they count on the [contribution graph](https://github.com/Athul-S-369) when they land on `main` or `gh-pages`.
 
+Old **Bootstrap Pages** failure emails from setup week can be ignored once a later bootstrap succeeded.
 ## Corpus layout
 
 ```

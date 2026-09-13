@@ -2,10 +2,13 @@ name: Sunday publish → GitHub Pages
 
 # End of week: editorial selection, export static newspaper, deploy Pages.
 # Idempotent — safe to re-run the same Sunday.
+#
+# Deploy: Actions Pages if build_type=workflow, else push to gh-pages branch
+# (same strategy as pages-bootstrap.yml).
 
 on:
   schedule:
-    - cron: "0 8 * * 0" # Sunday 08:00 UTC
+    - cron: "0 8 * * 0" # Sunday 08:00 UTC ≈ 13:30 IST
   workflow_dispatch:
 
 permissions:
@@ -20,9 +23,6 @@ concurrency:
 jobs:
   publish:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     env:
       DATABASE_URL: sqlite:///./data/weird.db
       WEIRD_DEMO_MODE: "false"
@@ -34,40 +34,11 @@ jobs:
       YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
       WEIRD_STATIC_EXPORT: "1"
       NEXT_PUBLIC_STATIC: "1"
-      # Default /WE-RD for project Pages (override with repo variable WEIRD_BASE_PATH).
       NEXT_PUBLIC_BASE_PATH: ${{ vars.WEIRD_BASE_PATH || '/WE-RD' }}
     steps:
       - uses: actions/checkout@v5
         with:
           fetch-depth: 1
-
-      - name: Verify GitHub Pages is enabled
-        env:
-          WEIRD_PAGES_TOKEN: ${{ secrets.WEIRD_PAGES_TOKEN }}
-        run: |
-          set -euo pipefail
-          api="$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/pages"
-          code=$(curl -sS -o /tmp/pages.json -w "%{http_code}" \
-            -H "Authorization: Bearer $GITHUB_TOKEN" \
-            -H "Accept: application/vnd.github+json" \
-            -H "X-GitHub-Api-Version: 2022-11-28" \
-            "$api")
-          if [ "$code" = "200" ]; then
-            echo "Pages site OK"
-            exit 0
-          fi
-          if [ -n "${WEIRD_PAGES_TOKEN:-}" ]; then
-            echo "Creating Pages site via WEIRD_PAGES_TOKEN…"
-            curl -fsS -X POST \
-              -H "Authorization: Bearer $WEIRD_PAGES_TOKEN" \
-              -H "Accept: application/vnd.github+json" \
-              -H "X-GitHub-Api-Version: 2022-11-28" \
-              "$api" \
-              -d '{"build_type":"workflow"}'
-            exit 0
-          fi
-          echo "::error title=GitHub Pages not enabled::Open https://github.com/$GITHUB_REPOSITORY/settings/pages → Source: GitHub Actions, then re-run. Or set secret WEIRD_PAGES_TOKEN (PAT with repo scope)."
-          exit 1
 
       - uses: actions/setup-python@v5
         with:
@@ -117,7 +88,9 @@ jobs:
 
       - name: Build static newspaper
         working-directory: apps/web
-        run: npm run build
+        run: |
+          npm run build
+          touch out/.nojekyll
 
       - name: Commit data + exported content
         uses: stefanzweifel/git-auto-commit-action@v5
@@ -127,14 +100,85 @@ jobs:
           commit_user_name: Athul S
           commit_user_email: 176425883+Athul-S-369@users.noreply.github.com
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
+      - uses: actions/upload-artifact@v4
+        with:
+          name: weird-sunday-site
+          path: apps/web/out
+          retention-days: 7
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+  probe-pages:
+    needs: publish
+    runs-on: ubuntu-latest
+    outputs:
+      mode: ${{ steps.probe.outputs.mode }}
+    steps:
+      - name: Probe Pages API
+        id: probe
+        env:
+          GH_TOKEN: ${{ github.token }}
+          WEIRD_PAGES_TOKEN: ${{ secrets.WEIRD_PAGES_TOKEN }}
+        run: |
+          set -o pipefail
+          api="${GITHUB_API_URL}/repos/${GITHUB_REPOSITORY}/pages"
+          auth="${WEIRD_PAGES_TOKEN:-$GH_TOKEN}"
+          code=$(curl -sS -o /tmp/pages.json -w "%{http_code}" \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "$api" || true)
+          echo "GET /pages → HTTP $code"
+          cat /tmp/pages.json || true
+          if [ "$code" = "200" ]; then
+            build_type=$(python -c "import json; print(json.load(open('/tmp/pages.json')).get('build_type') or '')")
+            if [ "$build_type" = "workflow" ]; then
+              echo "mode=actions" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+          fi
+          echo "mode=branch" >> "$GITHUB_OUTPUT"
+
+  deploy-actions:
+    needs: [publish, probe-pages]
+    if: needs.probe-pages.outputs.mode == 'actions'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: weird-sunday-site
+          path: apps/web/out
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
         with:
           path: apps/web/out
-
-      - name: Deploy to GitHub Pages
-        id: deployment
+      - id: deployment
         uses: actions/deploy-pages@v4
+
+  deploy-branch:
+    needs: [publish, probe-pages]
+    if: needs.probe-pages.outputs.mode == 'branch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: weird-sunday-site
+          path: site
+      - run: touch site/.nojekyll
+      - uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ github.token }}
+          publish_dir: site
+          publish_branch: gh-pages
+          user_name: Athul S
+          user_email: 176425883+Athul-S-369@users.noreply.github.com
+          force_orphan: true
+      - name: Summary
+        run: |
+          {
+            echo "## Sunday edition published to \`gh-pages\`"
+            echo ""
+            echo "Live (after Pages cache): https://athul-s-369.github.io/WE-RD/"
+            echo "Confirm Settings → Pages → Deploy from a branch → **gh-pages** / root."
+          } >> "$GITHUB_STEP_SUMMARY"
