@@ -1,0 +1,219 @@
+{
+  "slug": "a-database-written-for-the-joy-of-pages",
+  "title": "A database written for the joy of pages and WAL",
+  "dek": "B-trees, a WAL, and the refusal to call a cloud API.",
+  "description": "An embedded database implemented from scratch, with explicit page layout and crash recovery.",
+  "category": "SOURCE",
+  "category_label": "WE-RD / SOURCE",
+  "signal_score": 72.0,
+  "cracked_score": 86,
+  "rabbit_hole_score": 85.0,
+  "confidence": "demo",
+  "tags": [
+    "Databases",
+    "Rust",
+    "Storage"
+  ],
+  "is_demo": true,
+  "cracked_blurb": "Interesting, but not yet unhinged.",
+  "primary_source": "https://github.com/example-we-rd/tiny-db",
+  "score_dimensions": {},
+  "processing_mode": null,
+  "analysis": {
+    "why_you_should_care": "Storage engines are where 'it works on my SSD' becomes a research problem.",
+    "what_happened": "An open-source embedded database published a readable implementation of paging, a write-ahead log, and recovery.",
+    "how_it_works": "Pages on disk, a buffer pool in memory, a WAL for durability, checkpoints to bound recovery. Queries are extra credit; the engine is the story.",
+    "under_the_hood": "Look at page headers, endianness, checksums, and how they decide a transaction is durable. If they skip fsync, that is also a finding.",
+    "why_they_built_it": "To understand the machine that SQLite made look easy.",
+    "what_was_difficult": "Crash consistency. Everything else is vocabulary.",
+    "performance": "The available sources do not establish independent numbers.",
+    "trade_offs": "Simplicity versus concurrent writers. Educational clarity versus LSM fashion.",
+    "what_is_surprising": "The WAL is short. The bugs it prevents are not.",
+    "quick_read": "A from-scratch database whose pages you can actually read.",
+    "rabbit_holes": [
+      "WAL",
+      "B-trees",
+      "fsync",
+      "buffer pools"
+    ]
+  },
+  "security": null,
+  "leak": null,
+  "timeline": [
+    {
+      "occurred_at": "2026-09-01T00:00:00",
+      "headline": "Observed",
+      "body": "An embedded database implemented from scratch, with explicit page layout and crash recovery.",
+      "source_url": null
+    }
+  ],
+  "videos": [],
+  "projects": [
+    {
+      "name": "example-we-rd/tiny-db",
+      "url": "https://github.com/example-we-rd/tiny-db",
+      "host": "github",
+      "stars": null,
+      "language": "Rust",
+      "description": "Demo project placeholder."
+    }
+  ],
+  "sources": [
+    {
+      "role": "primary",
+      "url": "https://github.com/example-we-rd/tiny-db",
+      "title": "A database written for the joy of pages and WAL",
+      "credibility_kind": "official_project_repository",
+      "credibility_score": 0.9
+    }
+  ],
+  "created_at": "2026-09-09T17:41:44",
+  "score_breakdown": {
+    "dimensions": {},
+    "contributions": {},
+    "weights": {},
+    "explanations": {},
+    "rabbit_paths": [
+      "WAL",
+      "B-trees",
+      "fsync",
+      "buffer pools"
+    ]
+  },
+  "related": [
+    {
+      "slug": "the-c-library-that-got-rebuilt-in-rust",
+      "title": "The C library that got rebuilt in Rust",
+      "category": "BUILD",
+      "signal_score": 67.99,
+      "score": 0.3388,
+      "shared": [
+        "rust"
+      ]
+    }
+  ],
+  "source_graph": {
+    "nodes": [
+      {
+        "kind": "story",
+        "id": "story:a-database-written-for-the-joy-of-pages",
+        "label": "A database written for the joy of pages and WAL",
+        "url": null
+      },
+      {
+        "kind": "source",
+        "id": "source:https://github.com/example-we-rd/tiny-db",
+        "label": "A database written for the joy of pages and WAL",
+        "url": "https://github.com/example-we-rd/tiny-db"
+      },
+      {
+        "kind": "project",
+        "id": "project:https://github.com/example-we-rd/tiny-db",
+        "label": "example-we-rd/tiny-db",
+        "url": "https://github.com/example-we-rd/tiny-db"
+      },
+      {
+        "kind": "concept",
+        "id": "concept:databases",
+        "label": "Databases",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:rust",
+        "label": "Rust",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:storage",
+        "label": "Storage",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:wal",
+        "label": "WAL",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:b-trees",
+        "label": "B-trees",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:fsync",
+        "label": "fsync",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:buffer pools",
+        "label": "buffer pools",
+        "url": null
+      },
+      {
+        "kind": "related_story",
+        "id": "story:the-c-library-that-got-rebuilt-in-rust",
+        "label": "The C library that got rebuilt in Rust",
+        "url": "/story/the-c-library-that-got-rebuilt-in-rust"
+      }
+    ],
+    "edges": [
+      {
+        "source": "story:a-database-written-for-the-joy-of-pages",
+        "target": "source:https://github.com/example-we-rd/tiny-db",
+        "relation": "primary"
+      },
+      {
+        "source": "story:a-database-written-for-the-joy-of-pages",
+        "target": "project:https://github.com/example-we-rd/tiny-db",
+        "relation": "code"
+      },
+      {
+        "source": "story:a-database-written-for-the-joy-of-pages",
+        "target": "concept:databases",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:a-database-written-for-the-joy-of-pages",
+        "target": "concept:rust",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:a-database-written-for-the-joy-of-pages",
+        "target": "concept:storage",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:a-database-written-for-the-joy-of-pages",
+        "target": "concept:wal",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:a-database-written-for-the-joy-of-pages",
+        "target": "concept:b-trees",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:a-database-written-for-the-joy-of-pages",
+        "target": "concept:fsync",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:a-database-written-for-the-joy-of-pages",
+        "target": "concept:buffer pools",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:a-database-written-for-the-joy-of-pages",
+        "target": "story:the-c-library-that-got-rebuilt-in-rust",
+        "relation": "related"
+      }
+    ]
+  },
+  "youtube_status": null,
+  "editorial": {}
+}

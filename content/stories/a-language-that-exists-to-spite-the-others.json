@@ -1,0 +1,240 @@
+{
+  "slug": "a-language-that-exists-to-spite-the-others",
+  "title": "A programming language that exists to spite the others",
+  "dek": "The type system is the personality.",
+  "description": "A new language whose compiler, IR, and standard library were built because existing languages were not strange enough.",
+  "category": "LANG",
+  "category_label": "WE-RD / LANG",
+  "signal_score": 72.0,
+  "cracked_score": 84,
+  "rabbit_hole_score": 90.0,
+  "confidence": "demo",
+  "tags": [
+    "Compilers",
+    "LLVM",
+    "Type systems"
+  ],
+  "is_demo": true,
+  "cracked_blurb": "Interesting, but not yet unhinged.",
+  "primary_source": "https://github.com/example-we-rd/spite-lang",
+  "score_dimensions": {},
+  "processing_mode": null,
+  "analysis": {
+    "why_you_should_care": "Language implementation is where theory stops being optional. Parsing is the tutorial. Semantics is the product.",
+    "what_happened": "An independent compiler project published a self-hosted-or-nearly-self-hosted language with an unusual type system and its own IR.",
+    "how_it_works": "Source \u2192 parser \u2192 typed AST \u2192 IR \u2192 backend (often LLVM). The interesting choices are in type inference, effects, and what they refused to inherit from C.",
+    "under_the_hood": "Look at how they represent types, how they lower generics, and whether the backend is a real ISA or a detour through LLVM.",
+    "why_they_built_it": "Existing languages encoded someone else's compromises.",
+    "what_was_difficult": "Bootstrapping, error messages, and the moment the type checker becomes slower than the user's patience.",
+    "performance": "The available sources do not establish this.",
+    "trade_offs": "Novelty versus ecosystem. A beautiful IR with no libraries is still a beautiful IR.",
+    "what_is_surprising": "They shipped enough of a standard library that the language is not only a blog post.",
+    "quick_read": "A compiler from scratch, with a type system that has opinions.",
+    "rabbit_holes": [
+      "type systems",
+      "LLVM",
+      "bootstrapping",
+      "IR design"
+    ]
+  },
+  "security": null,
+  "leak": null,
+  "timeline": [
+    {
+      "occurred_at": "2026-09-01T00:00:00",
+      "headline": "Observed",
+      "body": "A new language whose compiler, IR, and standard library were built because existing languages were not strange enough.",
+      "source_url": null
+    }
+  ],
+  "videos": [],
+  "projects": [
+    {
+      "name": "example-we-rd/spite-lang",
+      "url": "https://github.com/example-we-rd/spite-lang",
+      "host": "github",
+      "stars": null,
+      "language": "Rust",
+      "description": "Demo project placeholder."
+    }
+  ],
+  "sources": [
+    {
+      "role": "primary",
+      "url": "https://github.com/example-we-rd/spite-lang",
+      "title": "A programming language that exists to spite the others",
+      "credibility_kind": "official_project_repository",
+      "credibility_score": 0.9
+    }
+  ],
+  "created_at": "2026-09-09T17:41:44",
+  "score_breakdown": {
+    "dimensions": {},
+    "contributions": {},
+    "weights": {},
+    "explanations": {},
+    "rabbit_paths": [
+      "type systems",
+      "LLVM",
+      "bootstrapping",
+      "IR design"
+    ]
+  },
+  "related": [
+    {
+      "slug": "the-c-library-that-got-rebuilt-in-rust",
+      "title": "The C library that got rebuilt in Rust",
+      "category": "BUILD",
+      "signal_score": 67.99,
+      "score": 0.4414,
+      "shared": [
+        "compilers",
+        "llvm"
+      ]
+    },
+    {
+      "slug": "an-accelerator-that-is-a-compiler-problem",
+      "title": "An accelerator that is really a compiler problem",
+      "category": "MACHINE",
+      "signal_score": 72.0,
+      "score": 0.3507,
+      "shared": [
+        "compilers"
+      ]
+    },
+    {
+      "slug": "a-talk-that-opens-the-lid",
+      "title": "A talk that actually opens the lid",
+      "category": "WATCH",
+      "signal_score": 72.0,
+      "score": 0.2634,
+      "shared": [
+        "compilers"
+      ]
+    }
+  ],
+  "source_graph": {
+    "nodes": [
+      {
+        "kind": "story",
+        "id": "story:a-language-that-exists-to-spite-the-others",
+        "label": "A programming language that exists to spite the others",
+        "url": null
+      },
+      {
+        "kind": "source",
+        "id": "source:https://github.com/example-we-rd/spite-lang",
+        "label": "A programming language that exists to spite the others",
+        "url": "https://github.com/example-we-rd/spite-lang"
+      },
+      {
+        "kind": "project",
+        "id": "project:https://github.com/example-we-rd/spite-lang",
+        "label": "example-we-rd/spite-lang",
+        "url": "https://github.com/example-we-rd/spite-lang"
+      },
+      {
+        "kind": "concept",
+        "id": "concept:compilers",
+        "label": "Compilers",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:llvm",
+        "label": "LLVM",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:type systems",
+        "label": "Type systems",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:bootstrapping",
+        "label": "bootstrapping",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:ir design",
+        "label": "IR design",
+        "url": null
+      },
+      {
+        "kind": "related_story",
+        "id": "story:the-c-library-that-got-rebuilt-in-rust",
+        "label": "The C library that got rebuilt in Rust",
+        "url": "/story/the-c-library-that-got-rebuilt-in-rust"
+      },
+      {
+        "kind": "related_story",
+        "id": "story:an-accelerator-that-is-a-compiler-problem",
+        "label": "An accelerator that is really a compiler problem",
+        "url": "/story/an-accelerator-that-is-a-compiler-problem"
+      },
+      {
+        "kind": "related_story",
+        "id": "story:a-talk-that-opens-the-lid",
+        "label": "A talk that actually opens the lid",
+        "url": "/story/a-talk-that-opens-the-lid"
+      }
+    ],
+    "edges": [
+      {
+        "source": "story:a-language-that-exists-to-spite-the-others",
+        "target": "source:https://github.com/example-we-rd/spite-lang",
+        "relation": "primary"
+      },
+      {
+        "source": "story:a-language-that-exists-to-spite-the-others",
+        "target": "project:https://github.com/example-we-rd/spite-lang",
+        "relation": "code"
+      },
+      {
+        "source": "story:a-language-that-exists-to-spite-the-others",
+        "target": "concept:compilers",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:a-language-that-exists-to-spite-the-others",
+        "target": "concept:llvm",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:a-language-that-exists-to-spite-the-others",
+        "target": "concept:type systems",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:a-language-that-exists-to-spite-the-others",
+        "target": "concept:bootstrapping",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:a-language-that-exists-to-spite-the-others",
+        "target": "concept:ir design",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:a-language-that-exists-to-spite-the-others",
+        "target": "story:the-c-library-that-got-rebuilt-in-rust",
+        "relation": "related"
+      },
+      {
+        "source": "story:a-language-that-exists-to-spite-the-others",
+        "target": "story:an-accelerator-that-is-a-compiler-problem",
+        "relation": "related"
+      },
+      {
+        "source": "story:a-language-that-exists-to-spite-the-others",
+        "target": "story:a-talk-that-opens-the-lid",
+        "relation": "related"
+      }
+    ]
+  },
+  "youtube_status": null,
+  "editorial": {}
+}
