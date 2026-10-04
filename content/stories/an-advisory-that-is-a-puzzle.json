@@ -1,0 +1,219 @@
+{
+  "slug": "an-advisory-that-is-a-puzzle",
+  "title": "An advisory that is a puzzle, not a press release",
+  "dek": "Confirmed. Patched. Not a movie trailer.",
+  "description": "A memory-safety issue in a widely used parser, disclosed with a CVE and a vendor patch.",
+  "category": "BREAK",
+  "category_label": "WE-RD / BREAK",
+  "signal_score": 72.0,
+  "cracked_score": 71,
+  "rabbit_hole_score": 76.0,
+  "confidence": "demo",
+  "tags": [
+    "Security",
+    "C",
+    "Parsers"
+  ],
+  "is_demo": true,
+  "cracked_blurb": "Interesting, but not yet unhinged.",
+  "primary_source": "https://nvd.nist.gov/vuln/detail/CVE-DEMO-0001",
+  "score_dimensions": {},
+  "processing_mode": null,
+  "analysis": {
+    "why_you_should_care": "The class is boring on purpose. The decoder is the kind of code everyone copies.",
+    "what_happened": "Researchers disclosed an out-of-bounds read in a parser. The vendor confirmed and shipped a patch. This is demo content, not a live CVE.",
+    "how_it_works": "A length field is trusted before the remaining bytes are measured. The read walks off the allocated buffer.",
+    "under_the_hood": "TLV decoders fail when they treat on-wire lengths as gospel. The patch adds a remaining-bytes check. That is the whole story, and it is enough.",
+    "why_they_built_it": "Not applicable \u2014 this is research and disclosure, not a project.",
+    "what_was_difficult": "Responsible disclosure, reproduction without publishing a weapon, and convincing a vendor the issue was real.",
+    "performance": "Not applicable.",
+    "trade_offs": "Patch early versus wait for coordinated disclosure.",
+    "what_is_surprising": "How small the missing check is.",
+    "quick_read": "A confirmed parser bug, patched, labeled clearly. Not a thriller.",
+    "rabbit_holes": [
+      "TLV",
+      "memory safety",
+      "disclosure"
+    ]
+  },
+  "security": {
+    "cve": "CVE-DEMO-0001",
+    "affected_software": "Example parser library (demo)",
+    "affected_versions": "< 1.2.0 (fictional)",
+    "vulnerability_class": "out-of-bounds read",
+    "root_cause": "Length not checked against remaining buffer in a TLV decoder.",
+    "severity": "High (vendor)",
+    "patch_status": "patched in 1.2.0",
+    "exploitation_status": "not observed in the wild according to the advisory",
+    "status": "confirmed",
+    "advisory": "https://example.invalid/advisory"
+  },
+  "leak": null,
+  "timeline": [
+    {
+      "occurred_at": "2026-09-01T00:00:00",
+      "headline": "Observed",
+      "body": "A memory-safety issue in a widely used parser, disclosed with a CVE and a vendor patch.",
+      "source_url": null
+    }
+  ],
+  "videos": [],
+  "projects": [],
+  "sources": [
+    {
+      "role": "primary",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-DEMO-0001",
+      "title": "An advisory that is a puzzle, not a press release",
+      "credibility_kind": "official_project_repository",
+      "credibility_score": 0.9
+    }
+  ],
+  "created_at": "2026-09-09T17:41:44",
+  "score_breakdown": {
+    "dimensions": {},
+    "contributions": {},
+    "weights": {},
+    "explanations": {},
+    "rabbit_paths": [
+      "TLV",
+      "memory safety",
+      "disclosure"
+    ]
+  },
+  "related": [
+    {
+      "slug": "the-c-library-that-got-rebuilt-in-rust",
+      "title": "The C library that got rebuilt in Rust",
+      "category": "BUILD",
+      "signal_score": 67.99,
+      "score": 0.409,
+      "shared": [
+        "c",
+        "memory safety"
+      ]
+    },
+    {
+      "slug": "nobody-asked-for-a-frontend-in-c",
+      "title": "Nobody asked for a frontend in C",
+      "category": "WHY",
+      "signal_score": 72.0,
+      "score": 0.3277,
+      "shared": [
+        "c"
+      ]
+    }
+  ],
+  "source_graph": {
+    "nodes": [
+      {
+        "kind": "story",
+        "id": "story:an-advisory-that-is-a-puzzle",
+        "label": "An advisory that is a puzzle, not a press release",
+        "url": null
+      },
+      {
+        "kind": "source",
+        "id": "source:https://nvd.nist.gov/vuln/detail/CVE-DEMO-0001",
+        "label": "An advisory that is a puzzle, not a press release",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-DEMO-0001"
+      },
+      {
+        "kind": "concept",
+        "id": "concept:security",
+        "label": "Security",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:c",
+        "label": "C",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:parsers",
+        "label": "Parsers",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:tlv",
+        "label": "TLV",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:memory safety",
+        "label": "memory safety",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:disclosure",
+        "label": "disclosure",
+        "url": null
+      },
+      {
+        "kind": "related_story",
+        "id": "story:the-c-library-that-got-rebuilt-in-rust",
+        "label": "The C library that got rebuilt in Rust",
+        "url": "/story/the-c-library-that-got-rebuilt-in-rust"
+      },
+      {
+        "kind": "related_story",
+        "id": "story:nobody-asked-for-a-frontend-in-c",
+        "label": "Nobody asked for a frontend in C",
+        "url": "/story/nobody-asked-for-a-frontend-in-c"
+      }
+    ],
+    "edges": [
+      {
+        "source": "story:an-advisory-that-is-a-puzzle",
+        "target": "source:https://nvd.nist.gov/vuln/detail/CVE-DEMO-0001",
+        "relation": "primary"
+      },
+      {
+        "source": "story:an-advisory-that-is-a-puzzle",
+        "target": "concept:security",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:an-advisory-that-is-a-puzzle",
+        "target": "concept:c",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:an-advisory-that-is-a-puzzle",
+        "target": "concept:parsers",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:an-advisory-that-is-a-puzzle",
+        "target": "concept:tlv",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:an-advisory-that-is-a-puzzle",
+        "target": "concept:memory safety",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:an-advisory-that-is-a-puzzle",
+        "target": "concept:disclosure",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:an-advisory-that-is-a-puzzle",
+        "target": "story:the-c-library-that-got-rebuilt-in-rust",
+        "relation": "related"
+      },
+      {
+        "source": "story:an-advisory-that-is-a-puzzle",
+        "target": "story:nobody-asked-for-a-frontend-in-c",
+        "relation": "related"
+      }
+    ]
+  },
+  "youtube_status": null,
+  "editorial": {}
+}

@@ -1,0 +1,184 @@
+{
+  "slug": "a-tiny-model-trick-that-is-not-a-launch",
+  "title": "A tiny model trick that is not a product launch",
+  "dek": "Compression, not a keynote.",
+  "description": "A paper on an unusual inference-time optimization with a reproducible open implementation.",
+  "category": "AI",
+  "category_label": "WE-RD / AI",
+  "signal_score": 72.0,
+  "cracked_score": 74,
+  "rabbit_hole_score": 80.0,
+  "confidence": "demo",
+  "tags": [
+    "AI",
+    "Inference",
+    "CUDA"
+  ],
+  "is_demo": true,
+  "cracked_blurb": "Interesting, but not yet unhinged.",
+  "primary_source": "https://arxiv.org/abs/0000.00000",
+  "score_dimensions": {},
+  "processing_mode": null,
+  "analysis": {
+    "why_you_should_care": "The interesting work is in the kernel and the approximation, not the demo video.",
+    "what_happened": "Researchers described an inference optimization and released code. This edition uses demo text, not a live paper.",
+    "how_it_works": "They change how activations or KV state are stored/computed so the same model fits or runs differently. The paper is the source of truth.",
+    "under_the_hood": "Read the method section. If there is no kernel, there is no story.",
+    "why_they_built_it": "Memory and latency are the actual product constraints.",
+    "what_was_difficult": "Numerics. Approximate methods fail quietly.",
+    "performance": "The available sources do not establish independent benchmarks. Cite only the paper's tables.",
+    "trade_offs": "Speed or memory versus fidelity. Always.",
+    "what_is_surprising": "How much of 'magic' is a data layout.",
+    "quick_read": "An inference paper with code \u2014 skip the marketing layer.",
+    "rabbit_holes": [
+      "KV cache",
+      "quantization",
+      "GPU memory"
+    ]
+  },
+  "security": null,
+  "leak": null,
+  "timeline": [
+    {
+      "occurred_at": "2026-09-01T00:00:00",
+      "headline": "Observed",
+      "body": "A paper on an unusual inference-time optimization with a reproducible open implementation.",
+      "source_url": null
+    }
+  ],
+  "videos": [],
+  "projects": [
+    {
+      "name": "example-we-rd/tiny-infer",
+      "url": "https://github.com/example-we-rd/tiny-infer",
+      "host": "github",
+      "stars": null,
+      "language": "Python",
+      "description": "Demo project placeholder."
+    }
+  ],
+  "sources": [
+    {
+      "role": "primary",
+      "url": "https://arxiv.org/abs/0000.00000",
+      "title": "A tiny model trick that is not a product launch",
+      "credibility_kind": "official_project_repository",
+      "credibility_score": 0.9
+    }
+  ],
+  "created_at": "2026-09-09T17:41:44",
+  "score_breakdown": {
+    "dimensions": {},
+    "contributions": {},
+    "weights": {},
+    "explanations": {},
+    "rabbit_paths": [
+      "KV cache",
+      "quantization",
+      "GPU memory"
+    ]
+  },
+  "related": [],
+  "source_graph": {
+    "nodes": [
+      {
+        "kind": "story",
+        "id": "story:a-tiny-model-trick-that-is-not-a-launch",
+        "label": "A tiny model trick that is not a product launch",
+        "url": null
+      },
+      {
+        "kind": "source",
+        "id": "source:https://arxiv.org/abs/0000.00000",
+        "label": "A tiny model trick that is not a product launch",
+        "url": "https://arxiv.org/abs/0000.00000"
+      },
+      {
+        "kind": "project",
+        "id": "project:https://github.com/example-we-rd/tiny-infer",
+        "label": "example-we-rd/tiny-infer",
+        "url": "https://github.com/example-we-rd/tiny-infer"
+      },
+      {
+        "kind": "concept",
+        "id": "concept:ai",
+        "label": "AI",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:inference",
+        "label": "Inference",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:cuda",
+        "label": "CUDA",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:kv cache",
+        "label": "KV cache",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:quantization",
+        "label": "quantization",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:gpu memory",
+        "label": "GPU memory",
+        "url": null
+      }
+    ],
+    "edges": [
+      {
+        "source": "story:a-tiny-model-trick-that-is-not-a-launch",
+        "target": "source:https://arxiv.org/abs/0000.00000",
+        "relation": "primary"
+      },
+      {
+        "source": "story:a-tiny-model-trick-that-is-not-a-launch",
+        "target": "project:https://github.com/example-we-rd/tiny-infer",
+        "relation": "code"
+      },
+      {
+        "source": "story:a-tiny-model-trick-that-is-not-a-launch",
+        "target": "concept:ai",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:a-tiny-model-trick-that-is-not-a-launch",
+        "target": "concept:inference",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:a-tiny-model-trick-that-is-not-a-launch",
+        "target": "concept:cuda",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:a-tiny-model-trick-that-is-not-a-launch",
+        "target": "concept:kv cache",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:a-tiny-model-trick-that-is-not-a-launch",
+        "target": "concept:quantization",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:a-tiny-model-trick-that-is-not-a-launch",
+        "target": "concept:gpu memory",
+        "relation": "rabbit"
+      }
+    ]
+  },
+  "youtube_status": null,
+  "editorial": {}
+}

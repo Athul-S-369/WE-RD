@@ -1,0 +1,282 @@
+{
+  "slug": "an-accelerator-that-is-a-compiler-problem",
+  "title": "An accelerator that is really a compiler problem",
+  "dek": "The silicon is interesting. The lowering is the plot.",
+  "description": "A custom accelerator whose software stack is the actual engineering artifact.",
+  "category": "MACHINE",
+  "category_label": "WE-RD / MACHINE",
+  "signal_score": 72.0,
+  "cracked_score": 83,
+  "rabbit_hole_score": 87.0,
+  "confidence": "demo",
+  "tags": [
+    "GPU",
+    "Compilers",
+    "Hardware"
+  ],
+  "is_demo": true,
+  "cracked_blurb": "Interesting, but not yet unhinged.",
+  "primary_source": "https://github.com/example-we-rd/accel",
+  "score_dimensions": {},
+  "processing_mode": null,
+  "analysis": {
+    "why_you_should_care": "Hardware without a compiler is jewelry.",
+    "what_happened": "A project published enough of an ISA and toolchain to compile real kernels. Demo write-up.",
+    "how_it_works": "Ops lower from a high-level graph or language into a machine that cares about memory layout more than FLOPs press releases.",
+    "under_the_hood": "Instruction scheduling, DMA, and the calling convention between host and device.",
+    "why_they_built_it": "Off-the-shelf GPUs were the wrong shape for the workload \u2014 or they wanted a machine they could understand.",
+    "what_was_difficult": "Making the toolchain boring enough to use.",
+    "performance": "The available sources do not establish independent numbers.",
+    "trade_offs": "Efficiency versus the entire CUDA-shaped world.",
+    "what_is_surprising": "The ISA is small. The compiler is not.",
+    "quick_read": "Custom silicon whose compiler is the story.",
+    "rabbit_holes": [
+      "ISA",
+      "lowering",
+      "DMA",
+      "memory hierarchies"
+    ]
+  },
+  "security": null,
+  "leak": null,
+  "timeline": [
+    {
+      "occurred_at": "2026-09-01T00:00:00",
+      "headline": "Observed",
+      "body": "A custom accelerator whose software stack is the actual engineering artifact.",
+      "source_url": null
+    }
+  ],
+  "videos": [],
+  "projects": [
+    {
+      "name": "example-we-rd/accel",
+      "url": "https://github.com/example-we-rd/accel",
+      "host": "github",
+      "stars": null,
+      "language": "C++",
+      "description": "Demo project placeholder."
+    }
+  ],
+  "sources": [
+    {
+      "role": "primary",
+      "url": "https://github.com/example-we-rd/accel",
+      "title": "An accelerator that is really a compiler problem",
+      "credibility_kind": "official_project_repository",
+      "credibility_score": 0.9
+    }
+  ],
+  "created_at": "2026-09-09T17:41:44",
+  "score_breakdown": {
+    "dimensions": {},
+    "contributions": {},
+    "weights": {},
+    "explanations": {},
+    "rabbit_paths": [
+      "ISA",
+      "lowering",
+      "DMA",
+      "memory hierarchies"
+    ]
+  },
+  "related": [
+    {
+      "slug": "a-language-that-exists-to-spite-the-others",
+      "title": "A programming language that exists to spite the others",
+      "category": "LANG",
+      "signal_score": 72.0,
+      "score": 0.3507,
+      "shared": [
+        "compilers"
+      ]
+    },
+    {
+      "slug": "a-talk-that-opens-the-lid",
+      "title": "A talk that actually opens the lid",
+      "category": "WATCH",
+      "signal_score": 72.0,
+      "score": 0.2901,
+      "shared": [
+        "compilers"
+      ]
+    },
+    {
+      "slug": "a-rumor-with-a-label",
+      "title": "A rumor with a label, not a headline",
+      "category": "LEAK",
+      "signal_score": 72.0,
+      "score": 0.2651,
+      "shared": [
+        "hardware"
+      ]
+    },
+    {
+      "slug": "the-c-library-that-got-rebuilt-in-rust",
+      "title": "The C library that got rebuilt in Rust",
+      "category": "BUILD",
+      "signal_score": 67.99,
+      "score": 0.2446,
+      "shared": [
+        "compilers"
+      ]
+    }
+  ],
+  "source_graph": {
+    "nodes": [
+      {
+        "kind": "story",
+        "id": "story:an-accelerator-that-is-a-compiler-problem",
+        "label": "An accelerator that is really a compiler problem",
+        "url": null
+      },
+      {
+        "kind": "source",
+        "id": "source:https://github.com/example-we-rd/accel",
+        "label": "An accelerator that is really a compiler problem",
+        "url": "https://github.com/example-we-rd/accel"
+      },
+      {
+        "kind": "project",
+        "id": "project:https://github.com/example-we-rd/accel",
+        "label": "example-we-rd/accel",
+        "url": "https://github.com/example-we-rd/accel"
+      },
+      {
+        "kind": "concept",
+        "id": "concept:gpu",
+        "label": "GPU",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:compilers",
+        "label": "Compilers",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:hardware",
+        "label": "Hardware",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:isa",
+        "label": "ISA",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:lowering",
+        "label": "lowering",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:dma",
+        "label": "DMA",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:memory hierarchies",
+        "label": "memory hierarchies",
+        "url": null
+      },
+      {
+        "kind": "related_story",
+        "id": "story:a-language-that-exists-to-spite-the-others",
+        "label": "A programming language that exists to spite the others",
+        "url": "/story/a-language-that-exists-to-spite-the-others"
+      },
+      {
+        "kind": "related_story",
+        "id": "story:a-talk-that-opens-the-lid",
+        "label": "A talk that actually opens the lid",
+        "url": "/story/a-talk-that-opens-the-lid"
+      },
+      {
+        "kind": "related_story",
+        "id": "story:a-rumor-with-a-label",
+        "label": "A rumor with a label, not a headline",
+        "url": "/story/a-rumor-with-a-label"
+      },
+      {
+        "kind": "related_story",
+        "id": "story:the-c-library-that-got-rebuilt-in-rust",
+        "label": "The C library that got rebuilt in Rust",
+        "url": "/story/the-c-library-that-got-rebuilt-in-rust"
+      }
+    ],
+    "edges": [
+      {
+        "source": "story:an-accelerator-that-is-a-compiler-problem",
+        "target": "source:https://github.com/example-we-rd/accel",
+        "relation": "primary"
+      },
+      {
+        "source": "story:an-accelerator-that-is-a-compiler-problem",
+        "target": "project:https://github.com/example-we-rd/accel",
+        "relation": "code"
+      },
+      {
+        "source": "story:an-accelerator-that-is-a-compiler-problem",
+        "target": "concept:gpu",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:an-accelerator-that-is-a-compiler-problem",
+        "target": "concept:compilers",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:an-accelerator-that-is-a-compiler-problem",
+        "target": "concept:hardware",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:an-accelerator-that-is-a-compiler-problem",
+        "target": "concept:isa",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:an-accelerator-that-is-a-compiler-problem",
+        "target": "concept:lowering",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:an-accelerator-that-is-a-compiler-problem",
+        "target": "concept:dma",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:an-accelerator-that-is-a-compiler-problem",
+        "target": "concept:memory hierarchies",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:an-accelerator-that-is-a-compiler-problem",
+        "target": "story:a-language-that-exists-to-spite-the-others",
+        "relation": "related"
+      },
+      {
+        "source": "story:an-accelerator-that-is-a-compiler-problem",
+        "target": "story:a-talk-that-opens-the-lid",
+        "relation": "related"
+      },
+      {
+        "source": "story:an-accelerator-that-is-a-compiler-problem",
+        "target": "story:a-rumor-with-a-label",
+        "relation": "related"
+      },
+      {
+        "source": "story:an-accelerator-that-is-a-compiler-problem",
+        "target": "story:the-c-library-that-got-rebuilt-in-rust",
+        "relation": "related"
+      }
+    ]
+  },
+  "youtube_status": null,
+  "editorial": {}
+}
