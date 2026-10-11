@@ -1,0 +1,420 @@
+{
+  "slug": "ladybird-independent-browser-engine",
+  "title": "Ladybird: a browser engine that refuses to be a skin",
+  "dek": "From-scratch HTML, CSS, JS \u2014 not Chromium with a new coat of paint.",
+  "description": "Ladybird is an independent browser engine and browser, forked out of SerenityOS work, now developed as its own project with the Ladybird Browser Initiative.",
+  "category": "BUILD",
+  "category_label": "WE-RD / BUILD",
+  "signal_score": 78.0,
+  "cracked_score": 94,
+  "rabbit_hole_score": 96.0,
+  "confidence": "confirmed",
+  "tags": [
+    "C++",
+    "Browsers",
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "SerenityOS"
+  ],
+  "is_demo": false,
+  "cracked_blurb": "Building a modern browser from scratch is the kind of ambition that looks insane until the commits keep coming.",
+  "primary_source": "https://ladybird.org/",
+  "score_dimensions": {
+    "novelty": 35.0,
+    "difficulty": 40.0,
+    "originality": 40.0,
+    "depth": 21.45,
+    "impact": 70.0,
+    "educational": 43.58,
+    "credibility": 90.0,
+    "rarity": 30.0,
+    "unexpectedness": 30.0,
+    "community": 100.0,
+    "rabbit_hole": 81.36
+  },
+  "processing_mode": "sample-issue (real primary sources)",
+  "analysis": {
+    "why_you_should_care": "Almost every 'new browser' is Chromium. Ladybird is attempting the rare thing: a real independent engine, which means HTML, CSS, layout, painting, and JS as engineering problems again.",
+    "what_happened": "Andreas Kling and contributors built LibWeb into Ladybird, then spun the browser into its own organization and repository so the engine could grow without carrying an entire OS.",
+    "how_it_works": "A multi-process browser architecture with from-scratch parsing, style, layout, and painting pipelines, plus a JavaScript engine path \u2014 implemented primarily in C++ with the project's own libraries rather than embedding Blink/WebKit.",
+    "under_the_hood": "Start at the Ladybird repo: browser chrome, LibWeb (engine), and the supporting Serenity-derived libraries. The interesting files are layout, CSS cascade, and how they choose which web platform features to implement next.",
+    "why_they_built_it": "Independence. A web that is not permanently downstream of one corporate engine.",
+    "what_was_difficult": "The web platform is a moving target measured in thousands of tests. Compatibility is the product; everything else is scaffolding.",
+    "performance": "Treat only project-published updates and traces as evidence. Do not invent Speedometer deltas.",
+    "trade_offs": "Total ownership of the stack versus years of catch-up against Chromium's compatibility surface.",
+    "what_is_surprising": "They keep shipping monthly technical updates that show the engine, not a marketing site.",
+    "quick_read": "An independent browser engine \u2014 the rabbit hole is the entire web platform.",
+    "rabbit_holes": [
+      "browser engines",
+      "CSS layout",
+      "JS runtimes",
+      "multi-process browsers",
+      "web standards"
+    ],
+    "further_reading_notes": "ladybird.org, the GitHub org, and Andreas Kling's update videos."
+  },
+  "security": null,
+  "leak": null,
+  "timeline": [
+    {
+      "occurred_at": "2026-09-01T00:00:00",
+      "headline": "Engine work inside SerenityOS",
+      "body": "LibWeb / Ladybird grew as a from-scratch web stack.",
+      "source_url": null
+    },
+    {
+      "occurred_at": "2026-09-15T00:00:00",
+      "headline": "Standalone browser focus",
+      "body": "Ladybird separated to focus on being a browser, not an OS.",
+      "source_url": null
+    },
+    {
+      "occurred_at": "2026-09-29T00:00:00",
+      "headline": "Ladybird Browser Initiative",
+      "body": "Nonprofit structure announced to support independent development.",
+      "source_url": null
+    }
+  ],
+  "videos": [
+    {
+      "video_id": "cbw0KrMGHvc",
+      "title": "Ladybird browser update (June 2024)",
+      "channel": "Andreas Kling",
+      "url": "https://www.youtube.com/watch?v=cbw0KrMGHvc",
+      "duration_seconds": null,
+      "published_at": null,
+      "description": "Project update covering the split from SerenityOS and engine work.",
+      "thumbnail": null,
+      "relevance_score": 0.95,
+      "technical": true
+    }
+  ],
+  "projects": [
+    {
+      "name": "LadybirdBrowser/ladybird",
+      "url": "https://github.com/LadybirdBrowser/ladybird",
+      "host": "github",
+      "stars": 48000,
+      "language": "C++",
+      "description": "Independent web browser from scratch."
+    }
+  ],
+  "sources": [
+    {
+      "role": "primary",
+      "url": "https://ladybird.org/",
+      "title": "Ladybird: a browser engine that refuses to be a skin",
+      "credibility_kind": "official_project_repository",
+      "credibility_score": 0.9
+    },
+    {
+      "role": "supporting",
+      "url": "https://ladybird.org/posts/announcement/",
+      "title": "Ladybird Browser Initiative announcement",
+      "credibility_kind": "original_author",
+      "credibility_score": 0.85
+    },
+    {
+      "role": "supporting",
+      "url": "https://github.com/LadybirdBrowser/ladybird",
+      "title": "Ladybird on GitHub",
+      "credibility_kind": "official_project_repository",
+      "credibility_score": 0.85
+    }
+  ],
+  "created_at": "2026-09-09T17:56:43",
+  "score_breakdown": {
+    "dimensions": {
+      "novelty": 35.0,
+      "difficulty": 40.0,
+      "originality": 40.0,
+      "depth": 21.45,
+      "impact": 70,
+      "educational": 43.58,
+      "credibility": 90.0,
+      "rarity": 30.0,
+      "unexpectedness": 30.0,
+      "community": 100.0,
+      "rabbit_hole": 81.36
+    },
+    "contributions": {
+      "novelty": 3.75,
+      "difficulty": 4.64,
+      "originality": 3.93,
+      "depth": 2.3,
+      "impact": 4.38,
+      "educational": 3.89,
+      "credibility": 7.23,
+      "rarity": 2.95,
+      "unexpectedness": 3.21,
+      "community": 3.12,
+      "rabbit_hole": 8.35
+    },
+    "weights": {},
+    "explanations": {},
+    "rabbit_paths": [
+      "browser engines",
+      "CSS layout",
+      "JS runtimes",
+      "multi-process browsers",
+      "web standards"
+    ]
+  },
+  "related": [
+    {
+      "slug": "watch-andreas-kling-ladybird-june-2024",
+      "title": "Watch: Andreas Kling's Ladybird engine updates",
+      "category": "WATCH",
+      "signal_score": 78.0,
+      "score": 0.6201,
+      "shared": [
+        "browsers",
+        "c++"
+      ]
+    },
+    {
+      "slug": "serenityos-from-scratch",
+      "title": "SerenityOS: a desktop OS someone is actually writing",
+      "category": "MACHINE",
+      "signal_score": 78.0,
+      "score": 0.3292,
+      "shared": [
+        "c++"
+      ]
+    },
+    {
+      "slug": "llama-cpp-local-inference",
+      "title": "llama.cpp: large models on the machines you already own",
+      "category": "AI",
+      "signal_score": 78.0,
+      "score": 0.2545,
+      "shared": [
+        "c++"
+      ]
+    }
+  ],
+  "source_graph": {
+    "nodes": [
+      {
+        "kind": "story",
+        "id": "story:ladybird-independent-browser-engine",
+        "label": "Ladybird: a browser engine that refuses to be a skin",
+        "url": null
+      },
+      {
+        "kind": "source",
+        "id": "source:https://ladybird.org/",
+        "label": "Ladybird: a browser engine that refuses to be a skin",
+        "url": "https://ladybird.org/"
+      },
+      {
+        "kind": "source",
+        "id": "source:https://ladybird.org/posts/announcement/",
+        "label": "Ladybird Browser Initiative announcement",
+        "url": "https://ladybird.org/posts/announcement/"
+      },
+      {
+        "kind": "source",
+        "id": "source:https://github.com/LadybirdBrowser/ladybird",
+        "label": "Ladybird on GitHub",
+        "url": "https://github.com/LadybirdBrowser/ladybird"
+      },
+      {
+        "kind": "project",
+        "id": "project:https://github.com/LadybirdBrowser/ladybird",
+        "label": "LadybirdBrowser/ladybird",
+        "url": "https://github.com/LadybirdBrowser/ladybird"
+      },
+      {
+        "kind": "video",
+        "id": "video:cbw0KrMGHvc",
+        "label": "Ladybird browser update (June 2024)",
+        "url": "https://www.youtube.com/watch?v=cbw0KrMGHvc"
+      },
+      {
+        "kind": "concept",
+        "id": "concept:c++",
+        "label": "C++",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:browsers",
+        "label": "Browsers",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:html",
+        "label": "HTML",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:css",
+        "label": "CSS",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:javascript",
+        "label": "JavaScript",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:serenityos",
+        "label": "SerenityOS",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:browser engines",
+        "label": "browser engines",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:css layout",
+        "label": "CSS layout",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:js runtimes",
+        "label": "JS runtimes",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:multi-process browsers",
+        "label": "multi-process browsers",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:web standards",
+        "label": "web standards",
+        "url": null
+      },
+      {
+        "kind": "related_story",
+        "id": "story:watch-andreas-kling-ladybird-june-2024",
+        "label": "Watch: Andreas Kling's Ladybird engine updates",
+        "url": "/story/watch-andreas-kling-ladybird-june-2024"
+      },
+      {
+        "kind": "related_story",
+        "id": "story:serenityos-from-scratch",
+        "label": "SerenityOS: a desktop OS someone is actually writing",
+        "url": "/story/serenityos-from-scratch"
+      },
+      {
+        "kind": "related_story",
+        "id": "story:llama-cpp-local-inference",
+        "label": "llama.cpp: large models on the machines you already own",
+        "url": "/story/llama-cpp-local-inference"
+      }
+    ],
+    "edges": [
+      {
+        "source": "story:ladybird-independent-browser-engine",
+        "target": "source:https://ladybird.org/",
+        "relation": "primary"
+      },
+      {
+        "source": "story:ladybird-independent-browser-engine",
+        "target": "source:https://ladybird.org/posts/announcement/",
+        "relation": "supporting"
+      },
+      {
+        "source": "story:ladybird-independent-browser-engine",
+        "target": "source:https://github.com/LadybirdBrowser/ladybird",
+        "relation": "supporting"
+      },
+      {
+        "source": "story:ladybird-independent-browser-engine",
+        "target": "project:https://github.com/LadybirdBrowser/ladybird",
+        "relation": "code"
+      },
+      {
+        "source": "story:ladybird-independent-browser-engine",
+        "target": "video:cbw0KrMGHvc",
+        "relation": "talk"
+      },
+      {
+        "source": "story:ladybird-independent-browser-engine",
+        "target": "concept:c++",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:ladybird-independent-browser-engine",
+        "target": "concept:browsers",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:ladybird-independent-browser-engine",
+        "target": "concept:html",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:ladybird-independent-browser-engine",
+        "target": "concept:css",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:ladybird-independent-browser-engine",
+        "target": "concept:javascript",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:ladybird-independent-browser-engine",
+        "target": "concept:serenityos",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:ladybird-independent-browser-engine",
+        "target": "concept:browser engines",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:ladybird-independent-browser-engine",
+        "target": "concept:css layout",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:ladybird-independent-browser-engine",
+        "target": "concept:js runtimes",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:ladybird-independent-browser-engine",
+        "target": "concept:multi-process browsers",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:ladybird-independent-browser-engine",
+        "target": "concept:web standards",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:ladybird-independent-browser-engine",
+        "target": "story:watch-andreas-kling-ladybird-june-2024",
+        "relation": "related"
+      },
+      {
+        "source": "story:ladybird-independent-browser-engine",
+        "target": "story:serenityos-from-scratch",
+        "relation": "related"
+      },
+      {
+        "source": "story:ladybird-independent-browser-engine",
+        "target": "story:llama-cpp-local-inference",
+        "relation": "related"
+      }
+    ]
+  },
+  "youtube_status": "NO VIDEO FOUND",
+  "editorial": {}
+}

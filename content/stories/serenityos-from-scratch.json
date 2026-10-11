@@ -1,0 +1,332 @@
+{
+  "slug": "serenityos-from-scratch",
+  "title": "SerenityOS: a desktop OS someone is actually writing",
+  "dek": "Kernel, windowing, apps \u2014 the joy of building the whole machine.",
+  "description": "SerenityOS is a from-scratch Unix-like desktop operating system with its own kernel, GUI, and userspace culture \u2014 the seedbed that also produced Ladybird's web engine.",
+  "category": "MACHINE",
+  "category_label": "WE-RD / MACHINE",
+  "signal_score": 78.0,
+  "cracked_score": 95,
+  "rabbit_hole_score": 94.0,
+  "confidence": "confirmed",
+  "tags": [
+    "Operating systems",
+    "C++",
+    "Kernels",
+    "GUI"
+  ],
+  "is_demo": false,
+  "cracked_blurb": "Nobody needed another OS. That is exactly why it is fascinating.",
+  "primary_source": "https://github.com/SerenityOS/serenity",
+  "score_dimensions": {
+    "novelty": 35.0,
+    "difficulty": 51.11,
+    "originality": 40.0,
+    "depth": 29.73,
+    "impact": 66.0,
+    "educational": 46.89,
+    "credibility": 90.0,
+    "rarity": 30.0,
+    "unexpectedness": 30.0,
+    "community": 100.0,
+    "rabbit_hole": 67.43
+  },
+  "processing_mode": "sample-issue (real primary sources)",
+  "analysis": {
+    "why_you_should_care": "Hobby OS projects usually stall at 'boots a shell'. Serenity kept going into a coherent desktop system \u2014 which is a different difficulty class.",
+    "what_happened": "A community built SerenityOS as a modern, nostalgic, from-scratch OS with substantial GUI and application work, later spinning browser work into Ladybird.",
+    "how_it_works": "Homegrown kernel and userspace libraries, a window server, and applications written against Serenity's own APIs.",
+    "under_the_hood": "Kernel/, Libraries/, and Applications/ in the monorepo. Follow a single system call from app to kernel if you want the full rabbit hole.",
+    "why_they_built_it": "Because building the whole stack teaches what abstractions cost.",
+    "what_was_difficult": "Consistency across an entire OS while remaining approachable to contributors.",
+    "performance": "Not a cloud benchmark game. Judge by engineering completeness.",
+    "trade_offs": "Cohesive homemade stack versus leveraging Linux userspace.",
+    "what_is_surprising": "The project culture treats 'we wrote that too' as a feature.",
+    "quick_read": "A from-scratch desktop OS \u2014 open the monorepo and pick a subsystem.",
+    "rabbit_holes": [
+      "kernels",
+      "window servers",
+      "libc",
+      "drivers",
+      "IPC"
+    ]
+  },
+  "security": null,
+  "leak": null,
+  "timeline": [
+    {
+      "occurred_at": "2026-09-01T00:00:00",
+      "headline": "Primary source published",
+      "body": "SerenityOS is a from-scratch Unix-like desktop operating system with its own kernel, GUI, and userspace culture \u2014 the seedbed that also produced Ladybird's web engine.",
+      "source_url": null
+    }
+  ],
+  "videos": [],
+  "projects": [
+    {
+      "name": "SerenityOS/serenity",
+      "url": "https://github.com/SerenityOS/serenity",
+      "host": "github",
+      "stars": 32000,
+      "language": "C++",
+      "description": "The Serenity Operating System."
+    }
+  ],
+  "sources": [
+    {
+      "role": "primary",
+      "url": "https://github.com/SerenityOS/serenity",
+      "title": "SerenityOS: a desktop OS someone is actually writing",
+      "credibility_kind": "official_project_repository",
+      "credibility_score": 0.9
+    }
+  ],
+  "created_at": "2026-09-09T17:56:43",
+  "score_breakdown": {
+    "dimensions": {
+      "novelty": 35.0,
+      "difficulty": 51.11,
+      "originality": 40.0,
+      "depth": 29.73,
+      "impact": 66,
+      "educational": 46.89,
+      "credibility": 90.0,
+      "rarity": 30.0,
+      "unexpectedness": 30.0,
+      "community": 100.0,
+      "rabbit_hole": 67.43
+    },
+    "contributions": {
+      "novelty": 3.75,
+      "difficulty": 5.93,
+      "originality": 3.93,
+      "depth": 3.19,
+      "impact": 4.12,
+      "educational": 4.19,
+      "credibility": 7.23,
+      "rarity": 2.95,
+      "unexpectedness": 3.21,
+      "community": 3.12,
+      "rabbit_hole": 6.92
+    },
+    "weights": {},
+    "explanations": {},
+    "rabbit_paths": [
+      "kernels",
+      "window servers",
+      "libc",
+      "drivers",
+      "IPC"
+    ]
+  },
+  "related": [
+    {
+      "slug": "ladybird-independent-browser-engine",
+      "title": "Ladybird: a browser engine that refuses to be a skin",
+      "category": "BUILD",
+      "signal_score": 78.0,
+      "score": 0.3292,
+      "shared": [
+        "c++"
+      ]
+    },
+    {
+      "slug": "llama-cpp-local-inference",
+      "title": "llama.cpp: large models on the machines you already own",
+      "category": "AI",
+      "signal_score": 78.0,
+      "score": 0.3198,
+      "shared": [
+        "c++"
+      ]
+    },
+    {
+      "slug": "cosmopolitan-libc-ape",
+      "title": "Cosmopolitan Libc: actually portable executable, taken seriously",
+      "category": "WHY",
+      "signal_score": 78.0,
+      "score": 0.3117,
+      "shared": [
+        "libc"
+      ]
+    },
+    {
+      "slug": "watch-andreas-kling-ladybird-june-2024",
+      "title": "Watch: Andreas Kling's Ladybird engine updates",
+      "category": "WATCH",
+      "signal_score": 78.0,
+      "score": 0.2991,
+      "shared": [
+        "c++"
+      ]
+    }
+  ],
+  "source_graph": {
+    "nodes": [
+      {
+        "kind": "story",
+        "id": "story:serenityos-from-scratch",
+        "label": "SerenityOS: a desktop OS someone is actually writing",
+        "url": null
+      },
+      {
+        "kind": "source",
+        "id": "source:https://github.com/SerenityOS/serenity",
+        "label": "SerenityOS: a desktop OS someone is actually writing",
+        "url": "https://github.com/SerenityOS/serenity"
+      },
+      {
+        "kind": "project",
+        "id": "project:https://github.com/SerenityOS/serenity",
+        "label": "SerenityOS/serenity",
+        "url": "https://github.com/SerenityOS/serenity"
+      },
+      {
+        "kind": "concept",
+        "id": "concept:operating systems",
+        "label": "Operating systems",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:c++",
+        "label": "C++",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:kernels",
+        "label": "Kernels",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:gui",
+        "label": "GUI",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:window servers",
+        "label": "window servers",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:libc",
+        "label": "libc",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:drivers",
+        "label": "drivers",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:ipc",
+        "label": "IPC",
+        "url": null
+      },
+      {
+        "kind": "related_story",
+        "id": "story:ladybird-independent-browser-engine",
+        "label": "Ladybird: a browser engine that refuses to be a skin",
+        "url": "/story/ladybird-independent-browser-engine"
+      },
+      {
+        "kind": "related_story",
+        "id": "story:llama-cpp-local-inference",
+        "label": "llama.cpp: large models on the machines you already own",
+        "url": "/story/llama-cpp-local-inference"
+      },
+      {
+        "kind": "related_story",
+        "id": "story:cosmopolitan-libc-ape",
+        "label": "Cosmopolitan Libc: actually portable executable, taken seriously",
+        "url": "/story/cosmopolitan-libc-ape"
+      },
+      {
+        "kind": "related_story",
+        "id": "story:watch-andreas-kling-ladybird-june-2024",
+        "label": "Watch: Andreas Kling's Ladybird engine updates",
+        "url": "/story/watch-andreas-kling-ladybird-june-2024"
+      }
+    ],
+    "edges": [
+      {
+        "source": "story:serenityos-from-scratch",
+        "target": "source:https://github.com/SerenityOS/serenity",
+        "relation": "primary"
+      },
+      {
+        "source": "story:serenityos-from-scratch",
+        "target": "project:https://github.com/SerenityOS/serenity",
+        "relation": "code"
+      },
+      {
+        "source": "story:serenityos-from-scratch",
+        "target": "concept:operating systems",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:serenityos-from-scratch",
+        "target": "concept:c++",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:serenityos-from-scratch",
+        "target": "concept:kernels",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:serenityos-from-scratch",
+        "target": "concept:gui",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:serenityos-from-scratch",
+        "target": "concept:window servers",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:serenityos-from-scratch",
+        "target": "concept:libc",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:serenityos-from-scratch",
+        "target": "concept:drivers",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:serenityos-from-scratch",
+        "target": "concept:ipc",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:serenityos-from-scratch",
+        "target": "story:ladybird-independent-browser-engine",
+        "relation": "related"
+      },
+      {
+        "source": "story:serenityos-from-scratch",
+        "target": "story:llama-cpp-local-inference",
+        "relation": "related"
+      },
+      {
+        "source": "story:serenityos-from-scratch",
+        "target": "story:cosmopolitan-libc-ape",
+        "relation": "related"
+      },
+      {
+        "source": "story:serenityos-from-scratch",
+        "target": "story:watch-andreas-kling-ladybird-june-2024",
+        "relation": "related"
+      }
+    ]
+  },
+  "youtube_status": "NO VIDEO FOUND",
+  "editorial": {}
+}
