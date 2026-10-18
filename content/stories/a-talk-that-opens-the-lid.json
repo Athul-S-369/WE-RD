@@ -1,0 +1,216 @@
+{
+  "slug": "a-talk-that-opens-the-lid",
+  "title": "A talk that actually opens the lid",
+  "dek": "Conference video, not a reaction channel.",
+  "description": "A recorded engineering talk that walks through an implementation instead of a slide deck of logos.",
+  "category": "WATCH",
+  "category_label": "WE-RD / WATCH",
+  "signal_score": 72.0,
+  "cracked_score": 68,
+  "rabbit_hole_score": 73.0,
+  "confidence": "demo",
+  "tags": [
+    "Compilers",
+    "Conference talks"
+  ],
+  "is_demo": true,
+  "cracked_blurb": "Interesting, but not yet unhinged.",
+  "primary_source": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+  "score_dimensions": {},
+  "processing_mode": null,
+  "analysis": {
+    "why_you_should_care": "Some implementations are still best explained by the person who lost a year on them.",
+    "what_happened": "WE-RD files a technical talk as a first-class story, not a thumbnail under a recap.",
+    "how_it_works": "The talk is the source. Notes below are a map, not a substitute.",
+    "under_the_hood": "Watch the debugging section. That is where the real architecture appears.",
+    "why_they_built_it": "To teach the part that does not fit in a commit message.",
+    "what_was_difficult": "Editing a talk so the hard part is still in it.",
+    "performance": "Not applicable.",
+    "trade_offs": "Depth versus runtime.",
+    "what_is_surprising": "How often the best diagram is a screenshot of a debugger.",
+    "quick_read": "A technical talk worth an hour if you care how the thing is built.",
+    "rabbit_holes": [
+      "conference talks",
+      "implementation"
+    ]
+  },
+  "security": null,
+  "leak": null,
+  "timeline": [
+    {
+      "occurred_at": "2026-09-01T00:00:00",
+      "headline": "Observed",
+      "body": "A recorded engineering talk that walks through an implementation instead of a slide deck of logos.",
+      "source_url": null
+    }
+  ],
+  "videos": [
+    {
+      "video_id": "dQw4w9WgXcQ",
+      "title": "[DEMO] Technical talk placeholder",
+      "channel": "WE-RD Demo",
+      "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "duration_seconds": null,
+      "published_at": null,
+      "description": "Demo video \u2014 not a real conference recording.",
+      "thumbnail": null,
+      "relevance_score": 0.4,
+      "technical": true
+    }
+  ],
+  "projects": [],
+  "sources": [
+    {
+      "role": "primary",
+      "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "title": "A talk that actually opens the lid",
+      "credibility_kind": "official_project_repository",
+      "credibility_score": 0.9
+    }
+  ],
+  "created_at": "2026-09-09T17:41:44",
+  "score_breakdown": {
+    "dimensions": {},
+    "contributions": {},
+    "weights": {},
+    "explanations": {},
+    "rabbit_paths": [
+      "conference talks",
+      "implementation"
+    ]
+  },
+  "related": [
+    {
+      "slug": "an-accelerator-that-is-a-compiler-problem",
+      "title": "An accelerator that is really a compiler problem",
+      "category": "MACHINE",
+      "signal_score": 72.0,
+      "score": 0.2901,
+      "shared": [
+        "compilers"
+      ]
+    },
+    {
+      "slug": "a-language-that-exists-to-spite-the-others",
+      "title": "A programming language that exists to spite the others",
+      "category": "LANG",
+      "signal_score": 72.0,
+      "score": 0.2634,
+      "shared": [
+        "compilers"
+      ]
+    },
+    {
+      "slug": "the-c-library-that-got-rebuilt-in-rust",
+      "title": "The C library that got rebuilt in Rust",
+      "category": "BUILD",
+      "signal_score": 67.99,
+      "score": 0.2307,
+      "shared": [
+        "compilers"
+      ]
+    }
+  ],
+  "source_graph": {
+    "nodes": [
+      {
+        "kind": "story",
+        "id": "story:a-talk-that-opens-the-lid",
+        "label": "A talk that actually opens the lid",
+        "url": null
+      },
+      {
+        "kind": "source",
+        "id": "source:https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        "label": "A talk that actually opens the lid",
+        "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+      },
+      {
+        "kind": "video",
+        "id": "video:dQw4w9WgXcQ",
+        "label": "[DEMO] Technical talk placeholder",
+        "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+      },
+      {
+        "kind": "concept",
+        "id": "concept:compilers",
+        "label": "Compilers",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:conference talks",
+        "label": "Conference talks",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:implementation",
+        "label": "implementation",
+        "url": null
+      },
+      {
+        "kind": "related_story",
+        "id": "story:an-accelerator-that-is-a-compiler-problem",
+        "label": "An accelerator that is really a compiler problem",
+        "url": "/story/an-accelerator-that-is-a-compiler-problem"
+      },
+      {
+        "kind": "related_story",
+        "id": "story:a-language-that-exists-to-spite-the-others",
+        "label": "A programming language that exists to spite the others",
+        "url": "/story/a-language-that-exists-to-spite-the-others"
+      },
+      {
+        "kind": "related_story",
+        "id": "story:the-c-library-that-got-rebuilt-in-rust",
+        "label": "The C library that got rebuilt in Rust",
+        "url": "/story/the-c-library-that-got-rebuilt-in-rust"
+      }
+    ],
+    "edges": [
+      {
+        "source": "story:a-talk-that-opens-the-lid",
+        "target": "source:https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        "relation": "primary"
+      },
+      {
+        "source": "story:a-talk-that-opens-the-lid",
+        "target": "video:dQw4w9WgXcQ",
+        "relation": "talk"
+      },
+      {
+        "source": "story:a-talk-that-opens-the-lid",
+        "target": "concept:compilers",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:a-talk-that-opens-the-lid",
+        "target": "concept:conference talks",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:a-talk-that-opens-the-lid",
+        "target": "concept:implementation",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:a-talk-that-opens-the-lid",
+        "target": "story:an-accelerator-that-is-a-compiler-problem",
+        "relation": "related"
+      },
+      {
+        "source": "story:a-talk-that-opens-the-lid",
+        "target": "story:a-language-that-exists-to-spite-the-others",
+        "relation": "related"
+      },
+      {
+        "source": "story:a-talk-that-opens-the-lid",
+        "target": "story:the-c-library-that-got-rebuilt-in-rust",
+        "relation": "related"
+      }
+    ]
+  },
+  "youtube_status": null,
+  "editorial": {}
+}
