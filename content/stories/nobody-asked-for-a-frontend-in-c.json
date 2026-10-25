@@ -1,0 +1,253 @@
+{
+  "slug": "nobody-asked-for-a-frontend-in-c",
+  "title": "Nobody asked for a frontend in C",
+  "dek": "Nobody needed to do this. Someone did it anyway.",
+  "description": "An entire UI stack implemented in C, including layout, drawing, and a homemade event loop.",
+  "category": "WHY",
+  "category_label": "WE-RD / WHY",
+  "signal_score": 72.0,
+  "cracked_score": 96,
+  "rabbit_hole_score": 82.0,
+  "confidence": "demo",
+  "tags": [
+    "C",
+    "Graphics",
+    "Browsers"
+  ],
+  "is_demo": true,
+  "cracked_blurb": "Interesting, but not yet unhinged.",
+  "primary_source": "https://github.com/example-we-rd/frontend-in-c",
+  "score_dimensions": {},
+  "processing_mode": null,
+  "analysis": {
+    "why_you_should_care": "It is a guided tour of everything a browser engine usually hides: layout, dirty rectangles, input, and the tax of doing it without a GC.",
+    "what_happened": "A developer implemented UI rendering, a DOM-like tree, and networking hooks in C instead of using a conventional web stack.",
+    "how_it_works": "Widgets are structs. Layout is a walk over a tree. Drawing hits a backend (often CPU). Networking is whatever sockets the author wrapped. There is no standard DOM; there is an ad-hoc tree that happens to look like one.",
+    "under_the_hood": "Expect arenas or malloc with discipline, a retained-mode tree, and immediate-mode temptation. JavaScript integration, if any, is the dangerous part \u2014 usually a bolted-on interpreter or none at all.",
+    "why_they_built_it": "Because the conventional stack felt like cheating, or because they wanted to see the bottom.",
+    "what_was_difficult": "Text layout, clipping, input focus, and not leaking the tree.",
+    "performance": "The available sources do not establish this.",
+    "trade_offs": "Total control, total responsibility. Portability and accessibility are usually the first casualties.",
+    "what_is_surprising": "It works far enough to shame anyone who said C was the wrong tool. It is still the wrong tool.",
+    "quick_read": "A UI in C. The joke is the premise. The value is the engine.",
+    "rabbit_holes": [
+      "layout",
+      "retained mode",
+      "text shaping",
+      "event loops",
+      "memory management"
+    ]
+  },
+  "security": null,
+  "leak": null,
+  "timeline": [
+    {
+      "occurred_at": "2026-09-01T00:00:00",
+      "headline": "Observed",
+      "body": "An entire UI stack implemented in C, including layout, drawing, and a homemade event loop.",
+      "source_url": null
+    }
+  ],
+  "videos": [],
+  "projects": [
+    {
+      "name": "example-we-rd/frontend-in-c",
+      "url": "https://github.com/example-we-rd/frontend-in-c",
+      "host": "github",
+      "stars": null,
+      "language": "C",
+      "description": "Demo project placeholder."
+    }
+  ],
+  "sources": [
+    {
+      "role": "primary",
+      "url": "https://github.com/example-we-rd/frontend-in-c",
+      "title": "Nobody asked for a frontend in C",
+      "credibility_kind": "official_project_repository",
+      "credibility_score": 0.9
+    }
+  ],
+  "created_at": "2026-09-09T17:41:44",
+  "score_breakdown": {
+    "dimensions": {},
+    "contributions": {},
+    "weights": {},
+    "explanations": {},
+    "rabbit_paths": [
+      "layout",
+      "retained mode",
+      "text shaping",
+      "event loops",
+      "memory management"
+    ]
+  },
+  "related": [
+    {
+      "slug": "an-advisory-that-is-a-puzzle",
+      "title": "An advisory that is a puzzle, not a press release",
+      "category": "BREAK",
+      "signal_score": 72.0,
+      "score": 0.3277,
+      "shared": [
+        "c"
+      ]
+    },
+    {
+      "slug": "the-c-library-that-got-rebuilt-in-rust",
+      "title": "The C library that got rebuilt in Rust",
+      "category": "BUILD",
+      "signal_score": 67.99,
+      "score": 0.2145,
+      "shared": [
+        "c"
+      ]
+    }
+  ],
+  "source_graph": {
+    "nodes": [
+      {
+        "kind": "story",
+        "id": "story:nobody-asked-for-a-frontend-in-c",
+        "label": "Nobody asked for a frontend in C",
+        "url": null
+      },
+      {
+        "kind": "source",
+        "id": "source:https://github.com/example-we-rd/frontend-in-c",
+        "label": "Nobody asked for a frontend in C",
+        "url": "https://github.com/example-we-rd/frontend-in-c"
+      },
+      {
+        "kind": "project",
+        "id": "project:https://github.com/example-we-rd/frontend-in-c",
+        "label": "example-we-rd/frontend-in-c",
+        "url": "https://github.com/example-we-rd/frontend-in-c"
+      },
+      {
+        "kind": "concept",
+        "id": "concept:c",
+        "label": "C",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:graphics",
+        "label": "Graphics",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:browsers",
+        "label": "Browsers",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:layout",
+        "label": "layout",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:retained mode",
+        "label": "retained mode",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:text shaping",
+        "label": "text shaping",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:event loops",
+        "label": "event loops",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:memory management",
+        "label": "memory management",
+        "url": null
+      },
+      {
+        "kind": "related_story",
+        "id": "story:an-advisory-that-is-a-puzzle",
+        "label": "An advisory that is a puzzle, not a press release",
+        "url": "/story/an-advisory-that-is-a-puzzle"
+      },
+      {
+        "kind": "related_story",
+        "id": "story:the-c-library-that-got-rebuilt-in-rust",
+        "label": "The C library that got rebuilt in Rust",
+        "url": "/story/the-c-library-that-got-rebuilt-in-rust"
+      }
+    ],
+    "edges": [
+      {
+        "source": "story:nobody-asked-for-a-frontend-in-c",
+        "target": "source:https://github.com/example-we-rd/frontend-in-c",
+        "relation": "primary"
+      },
+      {
+        "source": "story:nobody-asked-for-a-frontend-in-c",
+        "target": "project:https://github.com/example-we-rd/frontend-in-c",
+        "relation": "code"
+      },
+      {
+        "source": "story:nobody-asked-for-a-frontend-in-c",
+        "target": "concept:c",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:nobody-asked-for-a-frontend-in-c",
+        "target": "concept:graphics",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:nobody-asked-for-a-frontend-in-c",
+        "target": "concept:browsers",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:nobody-asked-for-a-frontend-in-c",
+        "target": "concept:layout",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:nobody-asked-for-a-frontend-in-c",
+        "target": "concept:retained mode",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:nobody-asked-for-a-frontend-in-c",
+        "target": "concept:text shaping",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:nobody-asked-for-a-frontend-in-c",
+        "target": "concept:event loops",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:nobody-asked-for-a-frontend-in-c",
+        "target": "concept:memory management",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:nobody-asked-for-a-frontend-in-c",
+        "target": "story:an-advisory-that-is-a-puzzle",
+        "relation": "related"
+      },
+      {
+        "source": "story:nobody-asked-for-a-frontend-in-c",
+        "target": "story:the-c-library-that-got-rebuilt-in-rust",
+        "relation": "related"
+      }
+    ]
+  },
+  "youtube_status": null,
+  "editorial": {}
+}

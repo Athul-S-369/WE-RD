@@ -1,0 +1,349 @@
+{
+  "slug": "cosmopolitan-libc-ape",
+  "title": "Cosmopolitan Libc: actually portable executable, taken seriously",
+  "dek": "One binary. Many operating systems. The linker tricks are the plot.",
+  "description": "Cosmopolitan Libc builds C programs as Actually Portable Executables that can run across Unix-like systems and Windows without the usual portability tax of rewrite-everything.",
+  "category": "WHY",
+  "category_label": "WE-RD / WHY",
+  "signal_score": 78.0,
+  "cracked_score": 97,
+  "rabbit_hole_score": 93.0,
+  "confidence": "confirmed",
+  "tags": [
+    "C",
+    "Linkers",
+    "ABI",
+    "Portability",
+    "Compilers"
+  ],
+  "is_demo": false,
+  "cracked_blurb": "Someone looked at OS boundaries and said: what if the binary just refused to care?",
+  "primary_source": "https://github.com/jart/cosmopolitan",
+  "score_dimensions": {
+    "novelty": 46.25,
+    "difficulty": 52.22,
+    "originality": 50.0,
+    "depth": 37.71,
+    "impact": 66.0,
+    "educational": 50.08,
+    "credibility": 90.0,
+    "rarity": 35.0,
+    "unexpectedness": 57.5,
+    "community": 100.0,
+    "rabbit_hole": 69.43
+  },
+  "processing_mode": "sample-issue (real primary sources)",
+  "analysis": {
+    "why_you_should_care": "Portability usually means #ifdef hell or a runtime. Cosmopolitan attacks the problem at the binary and libc boundary \u2014 which is either brilliant or cursed, depending on your taste.",
+    "what_happened": "Justine Tunney's Cosmopolitan project publishes a libc and toolchain approach for APE binaries that aim to run across multiple OS ABIs.",
+    "how_it_works": "Fat/polyglot executable tricks plus a libc that understands multiple system call surfaces, so a single artifact can boot on different platforms.",
+    "under_the_hood": "Start with the project's documentation on APE format, then the syscall shims. The linker and header strategy are the real curriculum.",
+    "why_they_built_it": "Because 'write once, run anywhere' for C was always a polite fiction.",
+    "what_was_difficult": "Making undefined platform behavior look defined without lying to the program.",
+    "performance": "Cite only author benchmarks. Platform variance is the point.",
+    "trade_offs": "Incredible portability experiments versus conventional distribution packaging expectations.",
+    "what_is_surprising": "It is not a joke repo. People ship real tools on it.",
+    "quick_read": "A C libc that tries to make one binary enough.",
+    "rabbit_holes": [
+      "APE",
+      "ELF",
+      "PE",
+      "syscalls",
+      "polyglot binaries",
+      "libc"
+    ]
+  },
+  "security": null,
+  "leak": null,
+  "timeline": [
+    {
+      "occurred_at": "2026-09-01T00:00:00",
+      "headline": "Primary source published",
+      "body": "Cosmopolitan Libc builds C programs as Actually Portable Executables that can run across Unix-like systems and Windows without the usual portability tax of rewrite-everything.",
+      "source_url": null
+    }
+  ],
+  "videos": [],
+  "projects": [
+    {
+      "name": "jart/cosmopolitan",
+      "url": "https://github.com/jart/cosmopolitan",
+      "host": "github",
+      "stars": 19000,
+      "language": "C",
+      "description": "C library for actually portable executables."
+    }
+  ],
+  "sources": [
+    {
+      "role": "primary",
+      "url": "https://github.com/jart/cosmopolitan",
+      "title": "Cosmopolitan Libc: actually portable executable, taken seriously",
+      "credibility_kind": "official_project_repository",
+      "credibility_score": 0.9
+    }
+  ],
+  "created_at": "2026-09-09T17:56:43",
+  "score_breakdown": {
+    "dimensions": {
+      "novelty": 46.25,
+      "difficulty": 52.22,
+      "originality": 50.0,
+      "depth": 37.71,
+      "impact": 66,
+      "educational": 50.08,
+      "credibility": 90.0,
+      "rarity": 35.0,
+      "unexpectedness": 57.5,
+      "community": 100.0,
+      "rabbit_hole": 69.43
+    },
+    "contributions": {
+      "novelty": 4.96,
+      "difficulty": 6.06,
+      "originality": 4.91,
+      "depth": 4.04,
+      "impact": 4.12,
+      "educational": 4.47,
+      "credibility": 7.23,
+      "rarity": 3.44,
+      "unexpectedness": 6.16,
+      "community": 3.12,
+      "rabbit_hole": 7.13
+    },
+    "weights": {},
+    "explanations": {},
+    "rabbit_paths": [
+      "APE",
+      "ELF",
+      "PE",
+      "syscalls",
+      "polyglot binaries",
+      "libc"
+    ]
+  },
+  "related": [
+    {
+      "slug": "hare-systems-language",
+      "title": "Hare: a systems language that wants to stay small",
+      "category": "LANG",
+      "signal_score": 78.0,
+      "score": 0.5278,
+      "shared": [
+        "c",
+        "compilers"
+      ]
+    },
+    {
+      "slug": "zig-language-systems",
+      "title": "Zig: a language for systems programmers who want explicitness",
+      "category": "DEEP",
+      "signal_score": 78.0,
+      "score": 0.4796,
+      "shared": [
+        "compilers",
+        "linkers"
+      ]
+    },
+    {
+      "slug": "serenityos-from-scratch",
+      "title": "SerenityOS: a desktop OS someone is actually writing",
+      "category": "MACHINE",
+      "signal_score": 78.0,
+      "score": 0.3117,
+      "shared": [
+        "libc"
+      ]
+    }
+  ],
+  "source_graph": {
+    "nodes": [
+      {
+        "kind": "story",
+        "id": "story:cosmopolitan-libc-ape",
+        "label": "Cosmopolitan Libc: actually portable executable, taken seriously",
+        "url": null
+      },
+      {
+        "kind": "source",
+        "id": "source:https://github.com/jart/cosmopolitan",
+        "label": "Cosmopolitan Libc: actually portable executable, taken seriously",
+        "url": "https://github.com/jart/cosmopolitan"
+      },
+      {
+        "kind": "project",
+        "id": "project:https://github.com/jart/cosmopolitan",
+        "label": "jart/cosmopolitan",
+        "url": "https://github.com/jart/cosmopolitan"
+      },
+      {
+        "kind": "concept",
+        "id": "concept:c",
+        "label": "C",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:linkers",
+        "label": "Linkers",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:abi",
+        "label": "ABI",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:portability",
+        "label": "Portability",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:compilers",
+        "label": "Compilers",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:ape",
+        "label": "APE",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:elf",
+        "label": "ELF",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:pe",
+        "label": "PE",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:syscalls",
+        "label": "syscalls",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:polyglot binaries",
+        "label": "polyglot binaries",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:libc",
+        "label": "libc",
+        "url": null
+      },
+      {
+        "kind": "related_story",
+        "id": "story:hare-systems-language",
+        "label": "Hare: a systems language that wants to stay small",
+        "url": "/story/hare-systems-language"
+      },
+      {
+        "kind": "related_story",
+        "id": "story:zig-language-systems",
+        "label": "Zig: a language for systems programmers who want explicitness",
+        "url": "/story/zig-language-systems"
+      },
+      {
+        "kind": "related_story",
+        "id": "story:serenityos-from-scratch",
+        "label": "SerenityOS: a desktop OS someone is actually writing",
+        "url": "/story/serenityos-from-scratch"
+      }
+    ],
+    "edges": [
+      {
+        "source": "story:cosmopolitan-libc-ape",
+        "target": "source:https://github.com/jart/cosmopolitan",
+        "relation": "primary"
+      },
+      {
+        "source": "story:cosmopolitan-libc-ape",
+        "target": "project:https://github.com/jart/cosmopolitan",
+        "relation": "code"
+      },
+      {
+        "source": "story:cosmopolitan-libc-ape",
+        "target": "concept:c",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:cosmopolitan-libc-ape",
+        "target": "concept:linkers",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:cosmopolitan-libc-ape",
+        "target": "concept:abi",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:cosmopolitan-libc-ape",
+        "target": "concept:portability",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:cosmopolitan-libc-ape",
+        "target": "concept:compilers",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:cosmopolitan-libc-ape",
+        "target": "concept:ape",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:cosmopolitan-libc-ape",
+        "target": "concept:elf",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:cosmopolitan-libc-ape",
+        "target": "concept:pe",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:cosmopolitan-libc-ape",
+        "target": "concept:syscalls",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:cosmopolitan-libc-ape",
+        "target": "concept:polyglot binaries",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:cosmopolitan-libc-ape",
+        "target": "concept:libc",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:cosmopolitan-libc-ape",
+        "target": "story:hare-systems-language",
+        "relation": "related"
+      },
+      {
+        "source": "story:cosmopolitan-libc-ape",
+        "target": "story:zig-language-systems",
+        "relation": "related"
+      },
+      {
+        "source": "story:cosmopolitan-libc-ape",
+        "target": "story:serenityos-from-scratch",
+        "relation": "related"
+      }
+    ]
+  },
+  "youtube_status": "NO VIDEO FOUND",
+  "editorial": {}
+}
