@@ -1,0 +1,458 @@
+{
+  "slug": "the-c-library-that-got-rebuilt-in-rust",
+  "title": "The C library that got rebuilt in Rust",
+  "dek": "How do you replace a C library without breaking everything around it?",
+  "description": "A drop-in Rust rewrite that treats ABI compatibility as the actual product.",
+  "category": "BUILD",
+  "category_label": "WE-RD / BUILD",
+  "signal_score": 68.0,
+  "cracked_score": 91,
+  "rabbit_hole_score": 88.0,
+  "confidence": "demo",
+  "tags": [
+    "Rust",
+    "C",
+    "FFI",
+    "ABI",
+    "LLVM",
+    "Compilers"
+  ],
+  "is_demo": true,
+  "cracked_blurb": "Someone absolutely did not need to build this.",
+  "primary_source": "https://github.com/example-we-rd/c-lib-rs",
+  "score_dimensions": {},
+  "processing_mode": null,
+  "analysis": {
+    "why_you_should_care": "The interesting part is not the rewrite itself. It is how the project preserves ABI compatibility while changing the implementation language.",
+    "what_happened": "A team reimplemented a widely linked C library in Rust and shipped it as a drop-in replacement. Existing binaries keep calling the same symbols.",
+    "how_it_works": "C API \u2192 ABI compatibility \u2192 Rust implementation \u2192 FFI boundary \u2192 ownership translation \u2192 platform shims \u2192 behavioral tests \u2192 published benchmarks from the authors only.",
+    "under_the_hood": "Public headers stay C. The shared object exports the original symbol names. Internally, Rust owns buffers and converts them at the FFI edge. Platform-specific POSIX calls remain behind a thin C-compatible veneer so callers do not need to know the implementation language.",
+    "why_they_built_it": "Memory safety in a library that sits under other people's processes, without asking those people to recompile the universe.",
+    "what_was_difficult": "Matching undefined-but-relied-upon C behavior, errno conventions, pointer lifetimes that outlive a Rust frame, and build systems that assume cc.",
+    "performance": "The available sources do not establish independent benchmark numbers. Use only figures published by the project and treat them as author-reported.",
+    "trade_offs": "You gain a memory-safe core and a chance at safer internals. You pay in FFI friction, a more complex build, and the obligation to mimic C's worst habits.",
+    "what_is_surprising": "The hard part is not writing Rust. The hard part is pretending you are still C.",
+    "quick_read": "A Rust rewrite of a C library that keeps the old ABI so nothing else has to change \u2014 except the insides.",
+    "rabbit_holes": [
+      "C ABI",
+      "FFI",
+      "memory ownership",
+      "libc",
+      "POSIX",
+      "LLVM",
+      "symbol versioning"
+    ],
+    "further_reading_notes": "Start at the repository, then the ABI notes, then any talk by the authors."
+  },
+  "security": null,
+  "leak": null,
+  "timeline": [
+    {
+      "occurred_at": "2026-09-01T00:00:00",
+      "headline": "Project announced",
+      "body": "The authors described the goal: same symbols, new language.",
+      "source_url": null
+    },
+    {
+      "occurred_at": "2026-09-03T00:00:00",
+      "headline": "Source code published",
+      "body": "The repository made the FFI boundary inspectable.",
+      "source_url": null
+    },
+    {
+      "occurred_at": "2026-09-05T00:00:00",
+      "headline": "Author benchmarks released",
+      "body": "Only author-reported numbers. Independent replication is not in the sources.",
+      "source_url": null
+    }
+  ],
+  "videos": [
+    {
+      "video_id": "dQw4w9WgXcQ",
+      "title": "[DEMO] Conference-style talk placeholder \u2014 not a real talk about this library",
+      "channel": "WE-RD Demo",
+      "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "duration_seconds": null,
+      "published_at": null,
+      "description": "Demo content. Replace via YouTube API enrichment in production.",
+      "thumbnail": null,
+      "relevance_score": 0.2,
+      "technical": false
+    }
+  ],
+  "projects": [
+    {
+      "name": "example-we-rd/c-lib-rs",
+      "url": "https://github.com/example-we-rd/c-lib-rs",
+      "host": "github",
+      "stars": 70,
+      "language": "Rust",
+      "description": "Demo repository placeholder \u2014 not a live project."
+    }
+  ],
+  "sources": [
+    {
+      "role": "primary",
+      "url": "https://github.com/example-we-rd/c-lib-rs",
+      "title": "The C library that got rebuilt in Rust",
+      "credibility_kind": "official_project_repository",
+      "credibility_score": 0.9
+    },
+    {
+      "role": "supporting",
+      "url": "https://example.invalid/abi-notes",
+      "title": "Engineering notes on ABI stability",
+      "credibility_kind": "original_author",
+      "credibility_score": 0.85
+    }
+  ],
+  "created_at": "2026-09-09T17:41:44",
+  "score_breakdown": {
+    "dimensions": {},
+    "contributions": {},
+    "weights": {},
+    "explanations": {},
+    "rabbit_paths": [
+      "Rust",
+      "C ABI",
+      "FFI",
+      "memory safety",
+      "libc",
+      "POSIX",
+      "compiler optimization",
+      "benchmarking",
+      "operating systems"
+    ]
+  },
+  "related": [
+    {
+      "slug": "a-language-that-exists-to-spite-the-others",
+      "title": "A programming language that exists to spite the others",
+      "category": "LANG",
+      "signal_score": 72.0,
+      "score": 0.4414,
+      "shared": [
+        "compilers",
+        "llvm"
+      ]
+    },
+    {
+      "slug": "an-advisory-that-is-a-puzzle",
+      "title": "An advisory that is a puzzle, not a press release",
+      "category": "BREAK",
+      "signal_score": 72.0,
+      "score": 0.409,
+      "shared": [
+        "c",
+        "memory safety"
+      ]
+    },
+    {
+      "slug": "a-database-written-for-the-joy-of-pages",
+      "title": "A database written for the joy of pages and WAL",
+      "category": "SOURCE",
+      "signal_score": 72.0,
+      "score": 0.3388,
+      "shared": [
+        "rust"
+      ]
+    },
+    {
+      "slug": "an-accelerator-that-is-a-compiler-problem",
+      "title": "An accelerator that is really a compiler problem",
+      "category": "MACHINE",
+      "signal_score": 72.0,
+      "score": 0.2446,
+      "shared": [
+        "compilers"
+      ]
+    },
+    {
+      "slug": "a-talk-that-opens-the-lid",
+      "title": "A talk that actually opens the lid",
+      "category": "WATCH",
+      "signal_score": 72.0,
+      "score": 0.2307,
+      "shared": [
+        "compilers"
+      ]
+    },
+    {
+      "slug": "nobody-asked-for-a-frontend-in-c",
+      "title": "Nobody asked for a frontend in C",
+      "category": "WHY",
+      "signal_score": 72.0,
+      "score": 0.2145,
+      "shared": [
+        "c"
+      ]
+    }
+  ],
+  "source_graph": {
+    "nodes": [
+      {
+        "kind": "story",
+        "id": "story:the-c-library-that-got-rebuilt-in-rust",
+        "label": "The C library that got rebuilt in Rust",
+        "url": null
+      },
+      {
+        "kind": "source",
+        "id": "source:https://github.com/example-we-rd/c-lib-rs",
+        "label": "The C library that got rebuilt in Rust",
+        "url": "https://github.com/example-we-rd/c-lib-rs"
+      },
+      {
+        "kind": "source",
+        "id": "source:https://example.invalid/abi-notes",
+        "label": "Engineering notes on ABI stability",
+        "url": "https://example.invalid/abi-notes"
+      },
+      {
+        "kind": "project",
+        "id": "project:https://github.com/example-we-rd/c-lib-rs",
+        "label": "example-we-rd/c-lib-rs",
+        "url": "https://github.com/example-we-rd/c-lib-rs"
+      },
+      {
+        "kind": "video",
+        "id": "video:dQw4w9WgXcQ",
+        "label": "[DEMO] Conference-style talk placeholder \u2014 not a real talk about this library",
+        "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+      },
+      {
+        "kind": "concept",
+        "id": "concept:rust",
+        "label": "Rust",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:c",
+        "label": "C",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:ffi",
+        "label": "FFI",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:abi",
+        "label": "ABI",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:llvm",
+        "label": "LLVM",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:compilers",
+        "label": "Compilers",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:c abi",
+        "label": "C ABI",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:memory safety",
+        "label": "memory safety",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:libc",
+        "label": "libc",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:posix",
+        "label": "POSIX",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:compiler optimization",
+        "label": "compiler optimization",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:benchmarking",
+        "label": "benchmarking",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:operating systems",
+        "label": "operating systems",
+        "url": null
+      },
+      {
+        "kind": "related_story",
+        "id": "story:a-language-that-exists-to-spite-the-others",
+        "label": "A programming language that exists to spite the others",
+        "url": "/story/a-language-that-exists-to-spite-the-others"
+      },
+      {
+        "kind": "related_story",
+        "id": "story:an-advisory-that-is-a-puzzle",
+        "label": "An advisory that is a puzzle, not a press release",
+        "url": "/story/an-advisory-that-is-a-puzzle"
+      },
+      {
+        "kind": "related_story",
+        "id": "story:a-database-written-for-the-joy-of-pages",
+        "label": "A database written for the joy of pages and WAL",
+        "url": "/story/a-database-written-for-the-joy-of-pages"
+      },
+      {
+        "kind": "related_story",
+        "id": "story:an-accelerator-that-is-a-compiler-problem",
+        "label": "An accelerator that is really a compiler problem",
+        "url": "/story/an-accelerator-that-is-a-compiler-problem"
+      },
+      {
+        "kind": "related_story",
+        "id": "story:a-talk-that-opens-the-lid",
+        "label": "A talk that actually opens the lid",
+        "url": "/story/a-talk-that-opens-the-lid"
+      },
+      {
+        "kind": "related_story",
+        "id": "story:nobody-asked-for-a-frontend-in-c",
+        "label": "Nobody asked for a frontend in C",
+        "url": "/story/nobody-asked-for-a-frontend-in-c"
+      }
+    ],
+    "edges": [
+      {
+        "source": "story:the-c-library-that-got-rebuilt-in-rust",
+        "target": "source:https://github.com/example-we-rd/c-lib-rs",
+        "relation": "primary"
+      },
+      {
+        "source": "story:the-c-library-that-got-rebuilt-in-rust",
+        "target": "source:https://example.invalid/abi-notes",
+        "relation": "supporting"
+      },
+      {
+        "source": "story:the-c-library-that-got-rebuilt-in-rust",
+        "target": "project:https://github.com/example-we-rd/c-lib-rs",
+        "relation": "code"
+      },
+      {
+        "source": "story:the-c-library-that-got-rebuilt-in-rust",
+        "target": "video:dQw4w9WgXcQ",
+        "relation": "talk"
+      },
+      {
+        "source": "story:the-c-library-that-got-rebuilt-in-rust",
+        "target": "concept:rust",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:the-c-library-that-got-rebuilt-in-rust",
+        "target": "concept:c",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:the-c-library-that-got-rebuilt-in-rust",
+        "target": "concept:ffi",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:the-c-library-that-got-rebuilt-in-rust",
+        "target": "concept:abi",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:the-c-library-that-got-rebuilt-in-rust",
+        "target": "concept:llvm",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:the-c-library-that-got-rebuilt-in-rust",
+        "target": "concept:compilers",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:the-c-library-that-got-rebuilt-in-rust",
+        "target": "concept:c abi",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:the-c-library-that-got-rebuilt-in-rust",
+        "target": "concept:memory safety",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:the-c-library-that-got-rebuilt-in-rust",
+        "target": "concept:libc",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:the-c-library-that-got-rebuilt-in-rust",
+        "target": "concept:posix",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:the-c-library-that-got-rebuilt-in-rust",
+        "target": "concept:compiler optimization",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:the-c-library-that-got-rebuilt-in-rust",
+        "target": "concept:benchmarking",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:the-c-library-that-got-rebuilt-in-rust",
+        "target": "concept:operating systems",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:the-c-library-that-got-rebuilt-in-rust",
+        "target": "story:a-language-that-exists-to-spite-the-others",
+        "relation": "related"
+      },
+      {
+        "source": "story:the-c-library-that-got-rebuilt-in-rust",
+        "target": "story:an-advisory-that-is-a-puzzle",
+        "relation": "related"
+      },
+      {
+        "source": "story:the-c-library-that-got-rebuilt-in-rust",
+        "target": "story:a-database-written-for-the-joy-of-pages",
+        "relation": "related"
+      },
+      {
+        "source": "story:the-c-library-that-got-rebuilt-in-rust",
+        "target": "story:an-accelerator-that-is-a-compiler-problem",
+        "relation": "related"
+      },
+      {
+        "source": "story:the-c-library-that-got-rebuilt-in-rust",
+        "target": "story:a-talk-that-opens-the-lid",
+        "relation": "related"
+      },
+      {
+        "source": "story:the-c-library-that-got-rebuilt-in-rust",
+        "target": "story:nobody-asked-for-a-frontend-in-c",
+        "relation": "related"
+      }
+    ]
+  },
+  "youtube_status": null,
+  "editorial": {}
+}

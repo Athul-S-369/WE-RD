@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="WE-RD">
+  <rect width="64" height="64" fill="#16140f"/>
+  <text x="32" y="40" text-anchor="middle" font-family="Georgia, serif" font-size="22" fill="#efe6d4">WE</text>
+  <text x="32" y="56" text-anchor="middle" font-family="ui-monospace, monospace" font-size="10" fill="#9c1c12">-RD</text>
+</svg>
