@@ -1,0 +1,166 @@
+{
+  "slug": "a-kernel-path-that-should-not-have-been-hot",
+  "title": "A kernel path that should not have been that hot",
+  "dek": "Someone read the scheduler. Then they could not unread it.",
+  "description": "A deep dive into an unexpected cost in a kernel hot path, with patches and measurements from the authors.",
+  "category": "DEEP",
+  "category_label": "WE-RD / DEEP",
+  "signal_score": 72.0,
+  "cracked_score": 79,
+  "rabbit_hole_score": 91.0,
+  "confidence": "demo",
+  "tags": [
+    "Linux Kernel",
+    "Performance",
+    "Schedulers"
+  ],
+  "is_demo": true,
+  "cracked_blurb": "Interesting, but not yet unhinged.",
+  "primary_source": "https://lwn.net/example-we-rd-kernel",
+  "score_dimensions": {},
+  "processing_mode": null,
+  "analysis": {
+    "why_you_should_care": "Performance work at this layer changes how you see every userspace benchmark.",
+    "what_happened": "An engineer traced an unexpected kernel cost, explained the path, and proposed a change. Demo reconstruction.",
+    "how_it_works": "A seemingly innocent syscall or scheduling decision takes a lock or walks a structure too often. The fix is usually a data-structure change, not a compiler flag.",
+    "under_the_hood": "Follow the tracepoints. If you cannot name the lock, you are still in the blog post.",
+    "why_they_built_it": "The numbers were embarrassing and the cause was hiding in a file everyone thought was finished.",
+    "what_was_difficult": "Proving the fix does not invert some other workload.",
+    "performance": "Use only author-published traces. This demo does not invent counters.",
+    "trade_offs": "Throughput versus latency, fairness versus cache warmth.",
+    "what_is_surprising": "The hot path was not where the comments said it would be.",
+    "quick_read": "A kernel hot path, explained like a crime scene.",
+    "rabbit_holes": [
+      "schedulers",
+      "locking",
+      "perf",
+      "cache lines"
+    ]
+  },
+  "security": null,
+  "leak": null,
+  "timeline": [
+    {
+      "occurred_at": "2026-09-01T00:00:00",
+      "headline": "Observed",
+      "body": "A deep dive into an unexpected cost in a kernel hot path, with patches and measurements from the authors.",
+      "source_url": null
+    }
+  ],
+  "videos": [],
+  "projects": [],
+  "sources": [
+    {
+      "role": "primary",
+      "url": "https://lwn.net/example-we-rd-kernel",
+      "title": "A kernel path that should not have been that hot",
+      "credibility_kind": "official_project_repository",
+      "credibility_score": 0.9
+    }
+  ],
+  "created_at": "2026-09-09T17:41:44",
+  "score_breakdown": {
+    "dimensions": {},
+    "contributions": {},
+    "weights": {},
+    "explanations": {},
+    "rabbit_paths": [
+      "schedulers",
+      "locking",
+      "perf",
+      "cache lines"
+    ]
+  },
+  "related": [],
+  "source_graph": {
+    "nodes": [
+      {
+        "kind": "story",
+        "id": "story:a-kernel-path-that-should-not-have-been-hot",
+        "label": "A kernel path that should not have been that hot",
+        "url": null
+      },
+      {
+        "kind": "source",
+        "id": "source:https://lwn.net/example-we-rd-kernel",
+        "label": "A kernel path that should not have been that hot",
+        "url": "https://lwn.net/example-we-rd-kernel"
+      },
+      {
+        "kind": "concept",
+        "id": "concept:linux kernel",
+        "label": "Linux Kernel",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:performance",
+        "label": "Performance",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:schedulers",
+        "label": "Schedulers",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:locking",
+        "label": "locking",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:perf",
+        "label": "perf",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:cache lines",
+        "label": "cache lines",
+        "url": null
+      }
+    ],
+    "edges": [
+      {
+        "source": "story:a-kernel-path-that-should-not-have-been-hot",
+        "target": "source:https://lwn.net/example-we-rd-kernel",
+        "relation": "primary"
+      },
+      {
+        "source": "story:a-kernel-path-that-should-not-have-been-hot",
+        "target": "concept:linux kernel",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:a-kernel-path-that-should-not-have-been-hot",
+        "target": "concept:performance",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:a-kernel-path-that-should-not-have-been-hot",
+        "target": "concept:schedulers",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:a-kernel-path-that-should-not-have-been-hot",
+        "target": "concept:locking",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:a-kernel-path-that-should-not-have-been-hot",
+        "target": "concept:perf",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:a-kernel-path-that-should-not-have-been-hot",
+        "target": "concept:cache lines",
+        "relation": "rabbit"
+      }
+    ]
+  },
+  "youtube_status": null,
+  "editorial": {}
+}

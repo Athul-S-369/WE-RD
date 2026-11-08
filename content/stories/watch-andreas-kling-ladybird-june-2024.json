@@ -1,0 +1,289 @@
+{
+  "slug": "watch-andreas-kling-ladybird-june-2024",
+  "title": "Watch: Andreas Kling's Ladybird engine updates",
+  "dek": "A primary-source engineering diary, not a reaction video.",
+  "description": "Andreas Kling's June 2024 Ladybird update walks through the browser/OS split and engine progress \u2014 the kind of technical primary source WE-RD files under WATCH.",
+  "category": "WATCH",
+  "category_label": "WE-RD / WATCH",
+  "signal_score": 78.0,
+  "cracked_score": 78,
+  "rabbit_hole_score": 86.0,
+  "confidence": "confirmed",
+  "tags": [
+    "Browsers",
+    "C++",
+    "Conference-style updates"
+  ],
+  "is_demo": false,
+  "cracked_blurb": "The best browser documentation is sometimes a human narrating diffs.",
+  "primary_source": "https://www.youtube.com/watch?v=cbw0KrMGHvc",
+  "score_dimensions": {
+    "novelty": 35.0,
+    "difficulty": 30.0,
+    "originality": 40.0,
+    "depth": 21.2,
+    "impact": 41.0,
+    "educational": 43.48,
+    "credibility": 90.0,
+    "rarity": 70.0,
+    "unexpectedness": 30.0,
+    "community": 0.0,
+    "rabbit_hole": 57.3
+  },
+  "processing_mode": "sample-issue (real primary sources)",
+  "analysis": {
+    "why_you_should_care": "Engine work is easy to mythologize. Primary-source updates show what actually moved: process model, dependencies, and the boring unblockers.",
+    "what_happened": "Kling published a June 2024 video update covering Ladybird's direction after focusing the project as a browser.",
+    "how_it_works": "The talk is the artifact. Use it as a map into the repo, not as a substitute for reading code.",
+    "under_the_hood": "Listen for dependency policy changes, removed OS coupling, and what they chose to stop reinventing.",
+    "why_they_built_it": "To keep contributors and sponsors synchronized with reality.",
+    "what_was_difficult": "Explaining multi-year engine work in a watchable slice.",
+    "performance": "Not applicable.",
+    "trade_offs": "Depth versus runtime \u2014 these updates stay surprisingly technical.",
+    "what_is_surprising": "How much architectural truth appears in a 'monthly update' format.",
+    "quick_read": "A technical browser update worth watching before you open the repo.",
+    "rabbit_holes": [
+      "Ladybird",
+      "LibWeb",
+      "browser architecture"
+    ]
+  },
+  "security": null,
+  "leak": null,
+  "timeline": [
+    {
+      "occurred_at": "2026-09-01T00:00:00",
+      "headline": "Primary source published",
+      "body": "Andreas Kling's June 2024 Ladybird update walks through the browser/OS split and engine progress \u2014 the kind of technical primary source WE-RD files under WATCH.",
+      "source_url": null
+    }
+  ],
+  "videos": [
+    {
+      "video_id": "cbw0KrMGHvc",
+      "title": "Ladybird browser update (June 2024)",
+      "channel": "Andreas Kling",
+      "url": "https://www.youtube.com/watch?v=cbw0KrMGHvc",
+      "duration_seconds": null,
+      "published_at": null,
+      "description": "Technical monthly update from the Ladybird founder.",
+      "thumbnail": null,
+      "relevance_score": 0.97,
+      "technical": true
+    }
+  ],
+  "projects": [],
+  "sources": [
+    {
+      "role": "primary",
+      "url": "https://www.youtube.com/watch?v=cbw0KrMGHvc",
+      "title": "Watch: Andreas Kling's Ladybird engine updates",
+      "credibility_kind": "official_project_repository",
+      "credibility_score": 0.9
+    }
+  ],
+  "created_at": "2026-09-09T17:56:43",
+  "score_breakdown": {
+    "dimensions": {
+      "novelty": 35.0,
+      "difficulty": 30.0,
+      "originality": 40.0,
+      "depth": 21.2,
+      "impact": 41.0,
+      "educational": 43.48,
+      "credibility": 90.0,
+      "rarity": 70.0,
+      "unexpectedness": 30.0,
+      "community": 0.0,
+      "rabbit_hole": 57.3
+    },
+    "contributions": {
+      "novelty": 3.75,
+      "difficulty": 3.48,
+      "originality": 3.93,
+      "depth": 2.27,
+      "impact": 2.56,
+      "educational": 3.88,
+      "credibility": 7.23,
+      "rarity": 6.88,
+      "unexpectedness": 3.21,
+      "community": 0.0,
+      "rabbit_hole": 5.88
+    },
+    "weights": {},
+    "explanations": {},
+    "rabbit_paths": [
+      "Ladybird",
+      "LibWeb",
+      "browser architecture"
+    ]
+  },
+  "related": [
+    {
+      "slug": "ladybird-independent-browser-engine",
+      "title": "Ladybird: a browser engine that refuses to be a skin",
+      "category": "BUILD",
+      "signal_score": 78.0,
+      "score": 0.6201,
+      "shared": [
+        "browsers",
+        "c++"
+      ]
+    },
+    {
+      "slug": "serenityos-from-scratch",
+      "title": "SerenityOS: a desktop OS someone is actually writing",
+      "category": "MACHINE",
+      "signal_score": 78.0,
+      "score": 0.2991,
+      "shared": [
+        "c++"
+      ]
+    },
+    {
+      "slug": "llama-cpp-local-inference",
+      "title": "llama.cpp: large models on the machines you already own",
+      "category": "AI",
+      "signal_score": 78.0,
+      "score": 0.2306,
+      "shared": [
+        "c++"
+      ]
+    }
+  ],
+  "source_graph": {
+    "nodes": [
+      {
+        "kind": "story",
+        "id": "story:watch-andreas-kling-ladybird-june-2024",
+        "label": "Watch: Andreas Kling's Ladybird engine updates",
+        "url": null
+      },
+      {
+        "kind": "source",
+        "id": "source:https://www.youtube.com/watch?v=cbw0KrMGHvc",
+        "label": "Watch: Andreas Kling's Ladybird engine updates",
+        "url": "https://www.youtube.com/watch?v=cbw0KrMGHvc"
+      },
+      {
+        "kind": "video",
+        "id": "video:cbw0KrMGHvc",
+        "label": "Ladybird browser update (June 2024)",
+        "url": "https://www.youtube.com/watch?v=cbw0KrMGHvc"
+      },
+      {
+        "kind": "concept",
+        "id": "concept:browsers",
+        "label": "Browsers",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:c++",
+        "label": "C++",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:conference-style updates",
+        "label": "Conference-style updates",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:ladybird",
+        "label": "Ladybird",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:libweb",
+        "label": "LibWeb",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:browser architecture",
+        "label": "browser architecture",
+        "url": null
+      },
+      {
+        "kind": "related_story",
+        "id": "story:ladybird-independent-browser-engine",
+        "label": "Ladybird: a browser engine that refuses to be a skin",
+        "url": "/story/ladybird-independent-browser-engine"
+      },
+      {
+        "kind": "related_story",
+        "id": "story:serenityos-from-scratch",
+        "label": "SerenityOS: a desktop OS someone is actually writing",
+        "url": "/story/serenityos-from-scratch"
+      },
+      {
+        "kind": "related_story",
+        "id": "story:llama-cpp-local-inference",
+        "label": "llama.cpp: large models on the machines you already own",
+        "url": "/story/llama-cpp-local-inference"
+      }
+    ],
+    "edges": [
+      {
+        "source": "story:watch-andreas-kling-ladybird-june-2024",
+        "target": "source:https://www.youtube.com/watch?v=cbw0KrMGHvc",
+        "relation": "primary"
+      },
+      {
+        "source": "story:watch-andreas-kling-ladybird-june-2024",
+        "target": "video:cbw0KrMGHvc",
+        "relation": "talk"
+      },
+      {
+        "source": "story:watch-andreas-kling-ladybird-june-2024",
+        "target": "concept:browsers",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:watch-andreas-kling-ladybird-june-2024",
+        "target": "concept:c++",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:watch-andreas-kling-ladybird-june-2024",
+        "target": "concept:conference-style updates",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:watch-andreas-kling-ladybird-june-2024",
+        "target": "concept:ladybird",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:watch-andreas-kling-ladybird-june-2024",
+        "target": "concept:libweb",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:watch-andreas-kling-ladybird-june-2024",
+        "target": "concept:browser architecture",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:watch-andreas-kling-ladybird-june-2024",
+        "target": "story:ladybird-independent-browser-engine",
+        "relation": "related"
+      },
+      {
+        "source": "story:watch-andreas-kling-ladybird-june-2024",
+        "target": "story:serenityos-from-scratch",
+        "relation": "related"
+      },
+      {
+        "source": "story:watch-andreas-kling-ladybird-june-2024",
+        "target": "story:llama-cpp-local-inference",
+        "relation": "related"
+      }
+    ]
+  },
+  "youtube_status": "NO VIDEO FOUND",
+  "editorial": {}
+}
