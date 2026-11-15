@@ -1,0 +1,169 @@
+{
+  "slug": "a-rumor-with-a-label",
+  "title": "A rumor with a label, not a headline",
+  "dek": "STATUS: UNVERIFIED. That is the article.",
+  "description": "An unconfirmed report about an unreleased architecture. Treated as a rumor on purpose.",
+  "category": "LEAK",
+  "category_label": "WE-RD / LEAK",
+  "signal_score": 72.0,
+  "cracked_score": 60,
+  "rabbit_hole_score": 55.0,
+  "confidence": "unverified",
+  "tags": [
+    "Hardware",
+    "RISC-V"
+  ],
+  "is_demo": true,
+  "cracked_blurb": "Interesting, but not yet unhinged.",
+  "primary_source": "https://example.invalid/unverified-claim",
+  "score_dimensions": {},
+  "processing_mode": null,
+  "analysis": {
+    "why_you_should_care": "Because leak culture trains readers to confuse appetite with evidence. WE-RD refuses.",
+    "what_happened": "A claim circulated about unreleased hardware. No primary source confirms it. This is demo content.",
+    "how_it_works": "Not established.",
+    "under_the_hood": "The available sources do not establish this.",
+    "why_they_built_it": "Unknown.",
+    "what_was_difficult": "Not applicable.",
+    "performance": "The available sources do not establish this.",
+    "trade_offs": "Not established.",
+    "what_is_surprising": "How little is required for a rumor to travel.",
+    "quick_read": "Unverified. Labeled. Not laundered into news.",
+    "rabbit_holes": [
+      "hardware rumors",
+      "primary sources"
+    ]
+  },
+  "security": null,
+  "leak": {
+    "status": "unverified",
+    "source": "Anonymous forum post (demo)",
+    "evidence": "None that WE-RD can independently confirm.",
+    "corroboration": "None",
+    "known": "A claim exists.",
+    "unknown": "Whether any silicon, document, or vendor agrees.",
+    "confidence": "low"
+  },
+  "timeline": [
+    {
+      "occurred_at": "2026-09-01T00:00:00",
+      "headline": "Observed",
+      "body": "An unconfirmed report about an unreleased architecture. Treated as a rumor on purpose.",
+      "source_url": null
+    }
+  ],
+  "videos": [],
+  "projects": [],
+  "sources": [
+    {
+      "role": "primary",
+      "url": "https://example.invalid/unverified-claim",
+      "title": "A rumor with a label, not a headline",
+      "credibility_kind": "official_project_repository",
+      "credibility_score": 0.9
+    }
+  ],
+  "created_at": "2026-09-09T17:41:44",
+  "score_breakdown": {
+    "dimensions": {},
+    "contributions": {},
+    "weights": {},
+    "explanations": {},
+    "rabbit_paths": [
+      "hardware rumors",
+      "primary sources"
+    ]
+  },
+  "related": [
+    {
+      "slug": "an-accelerator-that-is-a-compiler-problem",
+      "title": "An accelerator that is really a compiler problem",
+      "category": "MACHINE",
+      "signal_score": 72.0,
+      "score": 0.2651,
+      "shared": [
+        "hardware"
+      ]
+    }
+  ],
+  "source_graph": {
+    "nodes": [
+      {
+        "kind": "story",
+        "id": "story:a-rumor-with-a-label",
+        "label": "A rumor with a label, not a headline",
+        "url": null
+      },
+      {
+        "kind": "source",
+        "id": "source:https://example.invalid/unverified-claim",
+        "label": "A rumor with a label, not a headline",
+        "url": "https://example.invalid/unverified-claim"
+      },
+      {
+        "kind": "concept",
+        "id": "concept:hardware",
+        "label": "Hardware",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:risc-v",
+        "label": "RISC-V",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:hardware rumors",
+        "label": "hardware rumors",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:primary sources",
+        "label": "primary sources",
+        "url": null
+      },
+      {
+        "kind": "related_story",
+        "id": "story:an-accelerator-that-is-a-compiler-problem",
+        "label": "An accelerator that is really a compiler problem",
+        "url": "/story/an-accelerator-that-is-a-compiler-problem"
+      }
+    ],
+    "edges": [
+      {
+        "source": "story:a-rumor-with-a-label",
+        "target": "source:https://example.invalid/unverified-claim",
+        "relation": "primary"
+      },
+      {
+        "source": "story:a-rumor-with-a-label",
+        "target": "concept:hardware",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:a-rumor-with-a-label",
+        "target": "concept:risc-v",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:a-rumor-with-a-label",
+        "target": "concept:hardware rumors",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:a-rumor-with-a-label",
+        "target": "concept:primary sources",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:a-rumor-with-a-label",
+        "target": "story:an-accelerator-that-is-a-compiler-problem",
+        "relation": "related"
+      }
+    ]
+  },
+  "youtube_status": null,
+  "editorial": {}
+}

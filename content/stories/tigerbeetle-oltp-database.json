@@ -1,0 +1,287 @@
+{
+  "slug": "tigerbeetle-oltp-database",
+  "title": "TigerBeetle: an OLTP database obsessed with the hardware",
+  "dek": "Distributed financial transactions with a systems paper's attention span.",
+  "description": "TigerBeetle is an open-source distributed database for financial transaction processing, designed around explicit fault models, deterministic simulation testing, and careful use of modern storage hardware.",
+  "category": "SOURCE",
+  "category_label": "WE-RD / SOURCE",
+  "signal_score": 78.0,
+  "cracked_score": 90,
+  "rabbit_hole_score": 92.0,
+  "confidence": "confirmed",
+  "tags": [
+    "Databases",
+    "Zig",
+    "Distributed systems",
+    "OLTP"
+  ],
+  "is_demo": false,
+  "cracked_blurb": "They treated an OLTP database like an avionics problem. That is a compliment.",
+  "primary_source": "https://github.com/tigerbeetle/tigerbeetle",
+  "score_dimensions": {
+    "novelty": 35.0,
+    "difficulty": 41.11,
+    "originality": 40.0,
+    "depth": 29.68,
+    "impact": 70.0,
+    "educational": 46.87,
+    "credibility": 90.0,
+    "rarity": 30.0,
+    "unexpectedness": 30.0,
+    "community": 100.0,
+    "rabbit_hole": 75.42
+  },
+  "processing_mode": "sample-issue (real primary sources)",
+  "analysis": {
+    "why_you_should_care": "Most databases inherit decades of 'good enough' durability stories. TigerBeetle starts from fault models and simulation testing as first-class engineering.",
+    "what_happened": "The TigerBeetle project published an open-source OLTP database implemented in Zig, with public docs emphasizing safety and performance for transaction workloads.",
+    "how_it_works": "A purpose-built transaction protocol and storage engine oriented around double-entry style financial transactions, with deterministic simulation testing to hunt protocol bugs.",
+    "under_the_hood": "Read the docs on architecture and DST. The Zig implementation and IO strategy are where the systems taste shows.",
+    "why_they_built_it": "Financial ledgers are unforgiving; 'eventual' is not a personality trait you want in money.",
+    "what_was_difficult": "Proving protocol correctness under disk/network faults without drowning in Heisenbugs.",
+    "performance": "Use only TigerBeetle-published benchmarks and methodology. Do not invent TPS.",
+    "trade_offs": "Specialized OLTP focus versus general-purpose SQL comfort.",
+    "what_is_surprising": "How much of the pitch is testing philosophy rather than buzzwords.",
+    "quick_read": "An OLTP database written in Zig with simulation testing in its bones.",
+    "rabbit_holes": [
+      "deterministic simulation",
+      "consensus",
+      "storage faults",
+      "Zig",
+      "double-entry"
+    ]
+  },
+  "security": null,
+  "leak": null,
+  "timeline": [
+    {
+      "occurred_at": "2026-09-01T00:00:00",
+      "headline": "Primary source published",
+      "body": "TigerBeetle is an open-source distributed database for financial transaction processing, designed around explicit fault models, deterministic simulation testing, and careful use of modern storage hardware.",
+      "source_url": null
+    }
+  ],
+  "videos": [],
+  "projects": [
+    {
+      "name": "tigerbeetle/tigerbeetle",
+      "url": "https://github.com/tigerbeetle/tigerbeetle",
+      "host": "github",
+      "stars": 14000,
+      "language": "Zig",
+      "description": "The financial transactions database designed for mission-critical safety."
+    }
+  ],
+  "sources": [
+    {
+      "role": "primary",
+      "url": "https://github.com/tigerbeetle/tigerbeetle",
+      "title": "TigerBeetle: an OLTP database obsessed with the hardware",
+      "credibility_kind": "official_project_repository",
+      "credibility_score": 0.9
+    },
+    {
+      "role": "supporting",
+      "url": "https://docs.tigerbeetle.com/",
+      "title": "TigerBeetle docs",
+      "credibility_kind": "original_author",
+      "credibility_score": 0.85
+    }
+  ],
+  "created_at": "2026-09-09T17:56:43",
+  "score_breakdown": {
+    "dimensions": {
+      "novelty": 35.0,
+      "difficulty": 41.11,
+      "originality": 40.0,
+      "depth": 29.68,
+      "impact": 70,
+      "educational": 46.87,
+      "credibility": 90.0,
+      "rarity": 30.0,
+      "unexpectedness": 30.0,
+      "community": 100.0,
+      "rabbit_hole": 75.42
+    },
+    "contributions": {
+      "novelty": 3.75,
+      "difficulty": 4.77,
+      "originality": 3.93,
+      "depth": 3.18,
+      "impact": 4.38,
+      "educational": 4.19,
+      "credibility": 7.23,
+      "rarity": 2.95,
+      "unexpectedness": 3.21,
+      "community": 3.12,
+      "rabbit_hole": 7.74
+    },
+    "weights": {},
+    "explanations": {},
+    "rabbit_paths": [
+      "deterministic simulation",
+      "consensus",
+      "storage faults",
+      "Zig",
+      "double-entry"
+    ]
+  },
+  "related": [
+    {
+      "slug": "zig-language-systems",
+      "title": "Zig: a language for systems programmers who want explicitness",
+      "category": "DEEP",
+      "signal_score": 78.0,
+      "score": 0.2752,
+      "shared": [
+        "zig"
+      ]
+    }
+  ],
+  "source_graph": {
+    "nodes": [
+      {
+        "kind": "story",
+        "id": "story:tigerbeetle-oltp-database",
+        "label": "TigerBeetle: an OLTP database obsessed with the hardware",
+        "url": null
+      },
+      {
+        "kind": "source",
+        "id": "source:https://github.com/tigerbeetle/tigerbeetle",
+        "label": "TigerBeetle: an OLTP database obsessed with the hardware",
+        "url": "https://github.com/tigerbeetle/tigerbeetle"
+      },
+      {
+        "kind": "source",
+        "id": "source:https://docs.tigerbeetle.com/",
+        "label": "TigerBeetle docs",
+        "url": "https://docs.tigerbeetle.com/"
+      },
+      {
+        "kind": "project",
+        "id": "project:https://github.com/tigerbeetle/tigerbeetle",
+        "label": "tigerbeetle/tigerbeetle",
+        "url": "https://github.com/tigerbeetle/tigerbeetle"
+      },
+      {
+        "kind": "concept",
+        "id": "concept:databases",
+        "label": "Databases",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:zig",
+        "label": "Zig",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:distributed systems",
+        "label": "Distributed systems",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:oltp",
+        "label": "OLTP",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:deterministic simulation",
+        "label": "deterministic simulation",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:consensus",
+        "label": "consensus",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:storage faults",
+        "label": "storage faults",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:double-entry",
+        "label": "double-entry",
+        "url": null
+      },
+      {
+        "kind": "related_story",
+        "id": "story:zig-language-systems",
+        "label": "Zig: a language for systems programmers who want explicitness",
+        "url": "/story/zig-language-systems"
+      }
+    ],
+    "edges": [
+      {
+        "source": "story:tigerbeetle-oltp-database",
+        "target": "source:https://github.com/tigerbeetle/tigerbeetle",
+        "relation": "primary"
+      },
+      {
+        "source": "story:tigerbeetle-oltp-database",
+        "target": "source:https://docs.tigerbeetle.com/",
+        "relation": "supporting"
+      },
+      {
+        "source": "story:tigerbeetle-oltp-database",
+        "target": "project:https://github.com/tigerbeetle/tigerbeetle",
+        "relation": "code"
+      },
+      {
+        "source": "story:tigerbeetle-oltp-database",
+        "target": "concept:databases",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:tigerbeetle-oltp-database",
+        "target": "concept:zig",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:tigerbeetle-oltp-database",
+        "target": "concept:distributed systems",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:tigerbeetle-oltp-database",
+        "target": "concept:oltp",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:tigerbeetle-oltp-database",
+        "target": "concept:deterministic simulation",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:tigerbeetle-oltp-database",
+        "target": "concept:consensus",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:tigerbeetle-oltp-database",
+        "target": "concept:storage faults",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:tigerbeetle-oltp-database",
+        "target": "concept:double-entry",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:tigerbeetle-oltp-database",
+        "target": "story:zig-language-systems",
+        "relation": "related"
+      }
+    ]
+  },
+  "youtube_status": "NO VIDEO FOUND",
+  "editorial": {}
+}
