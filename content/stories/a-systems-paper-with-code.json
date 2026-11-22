@@ -1,0 +1,161 @@
+{
+  "slug": "a-systems-paper-with-code",
+  "title": "A systems paper that still has code attached",
+  "dek": "Read the evaluation, then clone the artifact.",
+  "description": "Experimental systems research with a public implementation, not a PDF-only claim.",
+  "category": "LAB",
+  "category_label": "WE-RD / LAB",
+  "signal_score": 72.0,
+  "cracked_score": 77,
+  "rabbit_hole_score": 84.0,
+  "confidence": "demo",
+  "tags": [
+    "Distributed systems",
+    "Research"
+  ],
+  "is_demo": true,
+  "cracked_blurb": "Interesting, but not yet unhinged.",
+  "primary_source": "https://arxiv.org/abs/0000.00001",
+  "score_dimensions": {},
+  "processing_mode": null,
+  "analysis": {
+    "why_you_should_care": "Papers that ship artifacts can be argued with. That is the scientific version of GO TECHNICAL.",
+    "what_happened": "A systems paper described a protocol or runtime and linked a repository. Demo stand-in.",
+    "how_it_works": "The protocol is specified, then implemented with the ugly timers and retries the related-work section skipped.",
+    "under_the_hood": "Reproduce one figure. If you cannot, the paper is incomplete \u2014 or you need their cluster.",
+    "why_they_built_it": "To change a cost model other systems treated as fixed.",
+    "what_was_difficult": "The evaluation. Always the evaluation.",
+    "performance": "Cite only the paper. This demo invents no speedups.",
+    "trade_offs": "Assumptions versus WAN reality.",
+    "what_is_surprising": "The artifact is more honest than the abstract.",
+    "quick_read": "Research with a repo. Start there.",
+    "rabbit_holes": [
+      "distributed systems",
+      "artifacts",
+      "fault models"
+    ]
+  },
+  "security": null,
+  "leak": null,
+  "timeline": [
+    {
+      "occurred_at": "2026-09-01T00:00:00",
+      "headline": "Observed",
+      "body": "Experimental systems research with a public implementation, not a PDF-only claim.",
+      "source_url": null
+    }
+  ],
+  "videos": [],
+  "projects": [
+    {
+      "name": "example-we-rd/systems-artifact",
+      "url": "https://github.com/example-we-rd/systems-artifact",
+      "host": "github",
+      "stars": null,
+      "language": "Go",
+      "description": "Demo project placeholder."
+    }
+  ],
+  "sources": [
+    {
+      "role": "primary",
+      "url": "https://arxiv.org/abs/0000.00001",
+      "title": "A systems paper that still has code attached",
+      "credibility_kind": "official_project_repository",
+      "credibility_score": 0.9
+    }
+  ],
+  "created_at": "2026-09-09T17:41:44",
+  "score_breakdown": {
+    "dimensions": {},
+    "contributions": {},
+    "weights": {},
+    "explanations": {},
+    "rabbit_paths": [
+      "distributed systems",
+      "artifacts",
+      "fault models"
+    ]
+  },
+  "related": [],
+  "source_graph": {
+    "nodes": [
+      {
+        "kind": "story",
+        "id": "story:a-systems-paper-with-code",
+        "label": "A systems paper that still has code attached",
+        "url": null
+      },
+      {
+        "kind": "source",
+        "id": "source:https://arxiv.org/abs/0000.00001",
+        "label": "A systems paper that still has code attached",
+        "url": "https://arxiv.org/abs/0000.00001"
+      },
+      {
+        "kind": "project",
+        "id": "project:https://github.com/example-we-rd/systems-artifact",
+        "label": "example-we-rd/systems-artifact",
+        "url": "https://github.com/example-we-rd/systems-artifact"
+      },
+      {
+        "kind": "concept",
+        "id": "concept:distributed systems",
+        "label": "Distributed systems",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:research",
+        "label": "Research",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:artifacts",
+        "label": "artifacts",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:fault models",
+        "label": "fault models",
+        "url": null
+      }
+    ],
+    "edges": [
+      {
+        "source": "story:a-systems-paper-with-code",
+        "target": "source:https://arxiv.org/abs/0000.00001",
+        "relation": "primary"
+      },
+      {
+        "source": "story:a-systems-paper-with-code",
+        "target": "project:https://github.com/example-we-rd/systems-artifact",
+        "relation": "code"
+      },
+      {
+        "source": "story:a-systems-paper-with-code",
+        "target": "concept:distributed systems",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:a-systems-paper-with-code",
+        "target": "concept:research",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:a-systems-paper-with-code",
+        "target": "concept:artifacts",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:a-systems-paper-with-code",
+        "target": "concept:fault models",
+        "relation": "rabbit"
+      }
+    ]
+  },
+  "youtube_status": null,
+  "editorial": {}
+}

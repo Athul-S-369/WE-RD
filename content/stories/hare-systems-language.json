@@ -1,0 +1,288 @@
+{
+  "slug": "hare-systems-language",
+  "title": "Hare: a systems language that wants to stay small",
+  "dek": "Opinionated simplicity next to C \u2014 not another kitchen-sink successor.",
+  "description": "Hare is a systems programming language designed by Drew DeVault and contributors as a smaller, simpler alternative in the C niche, with its own standard library and toolchain.",
+  "category": "LANG",
+  "category_label": "WE-RD / LANG",
+  "signal_score": 78.0,
+  "cracked_score": 82,
+  "rabbit_hole_score": 88.0,
+  "confidence": "confirmed",
+  "tags": [
+    "Hare",
+    "Compilers",
+    "Systems programming",
+    "C"
+  ],
+  "is_demo": false,
+  "cracked_blurb": "Designing a new systems language in 2020s is either hubris or hygiene. Hare bets on hygiene.",
+  "primary_source": "https://harelang.org/",
+  "score_dimensions": {
+    "novelty": 35.0,
+    "difficulty": 51.11,
+    "originality": 40.0,
+    "depth": 29.53,
+    "impact": 45.0,
+    "educational": 46.81,
+    "credibility": 90.0,
+    "rarity": 70.0,
+    "unexpectedness": 30.0,
+    "community": 0.0,
+    "rabbit_hole": 67.38
+  },
+  "processing_mode": "sample-issue (real primary sources)",
+  "analysis": {
+    "why_you_should_care": "Most 'C replacements' grow until they are something else. Hare's pitch is restraint: a language you can hold in your head for systems work.",
+    "what_happened": "The Hare project published a language specification, standard library, and toolchain oriented toward systems programming without C's sharpest edges \u2014 and without trying to be Rust.",
+    "how_it_works": "Statically typed language with manual memory management culture, its own build/tooling story, and a standard library sized for systems tasks.",
+    "under_the_hood": "Read the language docs and stdlib. Compare error handling and slices to C and to Rust's ownership model \u2014 Hare is making different bets.",
+    "why_they_built_it": "C's incumbency is not the same thing as C being finished.",
+    "what_was_difficult": "Bootstrapping culture and refusing feature creep while still being useful.",
+    "performance": "The available sources do not establish a universal benchmark winner. Language choice claims need workloads.",
+    "trade_offs": "Simplicity versus ecosystem gravity. Fewer features means fewer escape hatches.",
+    "what_is_surprising": "The aesthetic is almost aggressively unfashionable \u2014 on purpose.",
+    "quick_read": "A small systems language with strong opinions about staying small.",
+    "rabbit_holes": [
+      "language design",
+      "manual memory",
+      "bootstrapping",
+      "C ABI"
+    ]
+  },
+  "security": null,
+  "leak": null,
+  "timeline": [
+    {
+      "occurred_at": "2026-09-01T00:00:00",
+      "headline": "Primary source published",
+      "body": "Hare is a systems programming language designed by Drew DeVault and contributors as a smaller, simpler alternative in the C niche, with its own standard library and toolchain.",
+      "source_url": null
+    }
+  ],
+  "videos": [],
+  "projects": [],
+  "sources": [
+    {
+      "role": "primary",
+      "url": "https://harelang.org/",
+      "title": "Hare: a systems language that wants to stay small",
+      "credibility_kind": "official_project_repository",
+      "credibility_score": 0.9
+    },
+    {
+      "role": "supporting",
+      "url": "https://git.sr.ht/~sircmpwn/hare",
+      "title": "Hare on SourceHut",
+      "credibility_kind": "official_project_repository",
+      "credibility_score": 0.85
+    }
+  ],
+  "created_at": "2026-09-09T17:56:43",
+  "score_breakdown": {
+    "dimensions": {
+      "novelty": 35.0,
+      "difficulty": 51.11,
+      "originality": 40.0,
+      "depth": 29.53,
+      "impact": 45.0,
+      "educational": 46.81,
+      "credibility": 90.0,
+      "rarity": 70.0,
+      "unexpectedness": 30.0,
+      "community": 0.0,
+      "rabbit_hole": 67.38
+    },
+    "contributions": {
+      "novelty": 3.75,
+      "difficulty": 5.93,
+      "originality": 3.93,
+      "depth": 3.16,
+      "impact": 2.81,
+      "educational": 4.18,
+      "credibility": 7.23,
+      "rarity": 6.88,
+      "unexpectedness": 3.21,
+      "community": 0.0,
+      "rabbit_hole": 6.92
+    },
+    "weights": {},
+    "explanations": {},
+    "rabbit_paths": [
+      "language design",
+      "manual memory",
+      "bootstrapping",
+      "C ABI"
+    ]
+  },
+  "related": [
+    {
+      "slug": "zig-language-systems",
+      "title": "Zig: a language for systems programmers who want explicitness",
+      "category": "DEEP",
+      "signal_score": 78.0,
+      "score": 0.6194,
+      "shared": [
+        "compilers",
+        "systems programming"
+      ]
+    },
+    {
+      "slug": "cosmopolitan-libc-ape",
+      "title": "Cosmopolitan Libc: actually portable executable, taken seriously",
+      "category": "WHY",
+      "signal_score": 78.0,
+      "score": 0.5278,
+      "shared": [
+        "c",
+        "compilers"
+      ]
+    }
+  ],
+  "source_graph": {
+    "nodes": [
+      {
+        "kind": "story",
+        "id": "story:hare-systems-language",
+        "label": "Hare: a systems language that wants to stay small",
+        "url": null
+      },
+      {
+        "kind": "source",
+        "id": "source:https://harelang.org/",
+        "label": "Hare: a systems language that wants to stay small",
+        "url": "https://harelang.org/"
+      },
+      {
+        "kind": "source",
+        "id": "source:https://git.sr.ht/~sircmpwn/hare",
+        "label": "Hare on SourceHut",
+        "url": "https://git.sr.ht/~sircmpwn/hare"
+      },
+      {
+        "kind": "concept",
+        "id": "concept:hare",
+        "label": "Hare",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:compilers",
+        "label": "Compilers",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:systems programming",
+        "label": "Systems programming",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:c",
+        "label": "C",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:language design",
+        "label": "language design",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:manual memory",
+        "label": "manual memory",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:bootstrapping",
+        "label": "bootstrapping",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:c abi",
+        "label": "C ABI",
+        "url": null
+      },
+      {
+        "kind": "related_story",
+        "id": "story:zig-language-systems",
+        "label": "Zig: a language for systems programmers who want explicitness",
+        "url": "/story/zig-language-systems"
+      },
+      {
+        "kind": "related_story",
+        "id": "story:cosmopolitan-libc-ape",
+        "label": "Cosmopolitan Libc: actually portable executable, taken seriously",
+        "url": "/story/cosmopolitan-libc-ape"
+      }
+    ],
+    "edges": [
+      {
+        "source": "story:hare-systems-language",
+        "target": "source:https://harelang.org/",
+        "relation": "primary"
+      },
+      {
+        "source": "story:hare-systems-language",
+        "target": "source:https://git.sr.ht/~sircmpwn/hare",
+        "relation": "supporting"
+      },
+      {
+        "source": "story:hare-systems-language",
+        "target": "concept:hare",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:hare-systems-language",
+        "target": "concept:compilers",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:hare-systems-language",
+        "target": "concept:systems programming",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:hare-systems-language",
+        "target": "concept:c",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:hare-systems-language",
+        "target": "concept:language design",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:hare-systems-language",
+        "target": "concept:manual memory",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:hare-systems-language",
+        "target": "concept:bootstrapping",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:hare-systems-language",
+        "target": "concept:c abi",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:hare-systems-language",
+        "target": "story:zig-language-systems",
+        "relation": "related"
+      },
+      {
+        "source": "story:hare-systems-language",
+        "target": "story:cosmopolitan-libc-ape",
+        "relation": "related"
+      }
+    ]
+  },
+  "youtube_status": "NO VIDEO FOUND",
+  "editorial": {}
+}

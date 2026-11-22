@@ -1,0 +1,342 @@
+{
+  "slug": "zig-language-systems",
+  "title": "Zig: a language for systems programmers who want explicitness",
+  "dek": "No hidden allocations. A linker you can argue with. Cross-compilation as a feature.",
+  "description": "Zig is a systems programming language focused on explicit control, predictable performance, and superb cross-compilation \u2014 increasingly used for serious infrastructure (including projects like TigerBeetle).",
+  "category": "DEEP",
+  "category_label": "WE-RD / DEEP",
+  "signal_score": 78.0,
+  "cracked_score": 84,
+  "rabbit_hole_score": 91.0,
+  "confidence": "confirmed",
+  "tags": [
+    "Zig",
+    "Compilers",
+    "Linkers",
+    "Systems programming"
+  ],
+  "is_demo": false,
+  "cracked_blurb": "Zig's whole personality is refusing to let the language surprise you at runtime.",
+  "primary_source": "https://github.com/ziglang/zig",
+  "score_dimensions": {
+    "novelty": 35.0,
+    "difficulty": 73.33,
+    "originality": 40.0,
+    "depth": 45.74,
+    "impact": 70.0,
+    "educational": 53.3,
+    "credibility": 90.0,
+    "rarity": 30.0,
+    "unexpectedness": 30.0,
+    "community": 100.0,
+    "rabbit_hole": 95.44
+  },
+  "processing_mode": "sample-issue (real primary sources)",
+  "analysis": {
+    "why_you_should_care": "Zig sits in the space between C and Rust with a different answer: make control explicit, keep the toolchain ruthlessly useful for cross builds.",
+    "what_happened": "The Zig project continues to ship a language, standard library, and integrated toolchain used by real systems software.",
+    "how_it_works": "Manual memory culture, comptime metaprogramming, and a compiler/toolchain stack that treats cross-compilation as normal rather than exotic.",
+    "under_the_hood": "Read ziglang.org docs on comptime and the build system. Then look at how real projects structure `build.zig`.",
+    "why_they_built_it": "C is ubiquitous and sharp. Zig wants the ubiquity without the undefined superstition.",
+    "what_was_difficult": "Bootstrapping a self-hosted compiler world while staying honest about status.",
+    "performance": "Depends on code. Zig's claim is control, not magic speedups.",
+    "trade_offs": "Explicitness versus the comfort of a borrow checker; younger ecosystem versus C's everything.",
+    "what_is_surprising": "How often 'the Zig way' shows up as better packaging of existing systems ideas.",
+    "quick_read": "A systems language where explicitness is the feature.",
+    "rabbit_holes": [
+      "comptime",
+      "cross-compilation",
+      "LLVM",
+      "allocators",
+      "ABI"
+    ]
+  },
+  "security": null,
+  "leak": null,
+  "timeline": [
+    {
+      "occurred_at": "2026-09-01T00:00:00",
+      "headline": "Primary source published",
+      "body": "Zig is a systems programming language focused on explicit control, predictable performance, and superb cross-compilation \u2014 increasingly used for serious infrastructure (including projects like TigerBeetle).",
+      "source_url": null
+    }
+  ],
+  "videos": [],
+  "projects": [
+    {
+      "name": "ziglang/zig",
+      "url": "https://github.com/ziglang/zig",
+      "host": "github",
+      "stars": 40000,
+      "language": "Zig",
+      "description": "Zig programming language."
+    }
+  ],
+  "sources": [
+    {
+      "role": "primary",
+      "url": "https://github.com/ziglang/zig",
+      "title": "Zig: a language for systems programmers who want explicitness",
+      "credibility_kind": "official_project_repository",
+      "credibility_score": 0.9
+    },
+    {
+      "role": "supporting",
+      "url": "https://ziglang.org/",
+      "title": "Zig language site",
+      "credibility_kind": "original_author",
+      "credibility_score": 0.85
+    }
+  ],
+  "created_at": "2026-09-09T17:56:43",
+  "score_breakdown": {
+    "dimensions": {
+      "novelty": 35.0,
+      "difficulty": 73.33,
+      "originality": 40.0,
+      "depth": 45.74,
+      "impact": 70,
+      "educational": 53.3,
+      "credibility": 90.0,
+      "rarity": 30.0,
+      "unexpectedness": 30.0,
+      "community": 100.0,
+      "rabbit_hole": 95.44
+    },
+    "contributions": {
+      "novelty": 3.75,
+      "difficulty": 8.51,
+      "originality": 3.93,
+      "depth": 4.9,
+      "impact": 4.38,
+      "educational": 4.76,
+      "credibility": 7.23,
+      "rarity": 2.95,
+      "unexpectedness": 3.21,
+      "community": 3.12,
+      "rabbit_hole": 9.8
+    },
+    "weights": {},
+    "explanations": {},
+    "rabbit_paths": [
+      "comptime",
+      "cross-compilation",
+      "LLVM",
+      "allocators",
+      "ABI"
+    ]
+  },
+  "related": [
+    {
+      "slug": "hare-systems-language",
+      "title": "Hare: a systems language that wants to stay small",
+      "category": "LANG",
+      "signal_score": 78.0,
+      "score": 0.6194,
+      "shared": [
+        "compilers",
+        "systems programming"
+      ]
+    },
+    {
+      "slug": "cosmopolitan-libc-ape",
+      "title": "Cosmopolitan Libc: actually portable executable, taken seriously",
+      "category": "WHY",
+      "signal_score": 78.0,
+      "score": 0.4796,
+      "shared": [
+        "compilers",
+        "linkers"
+      ]
+    },
+    {
+      "slug": "tigerbeetle-oltp-database",
+      "title": "TigerBeetle: an OLTP database obsessed with the hardware",
+      "category": "SOURCE",
+      "signal_score": 78.0,
+      "score": 0.2752,
+      "shared": [
+        "zig"
+      ]
+    }
+  ],
+  "source_graph": {
+    "nodes": [
+      {
+        "kind": "story",
+        "id": "story:zig-language-systems",
+        "label": "Zig: a language for systems programmers who want explicitness",
+        "url": null
+      },
+      {
+        "kind": "source",
+        "id": "source:https://github.com/ziglang/zig",
+        "label": "Zig: a language for systems programmers who want explicitness",
+        "url": "https://github.com/ziglang/zig"
+      },
+      {
+        "kind": "source",
+        "id": "source:https://ziglang.org/",
+        "label": "Zig language site",
+        "url": "https://ziglang.org/"
+      },
+      {
+        "kind": "project",
+        "id": "project:https://github.com/ziglang/zig",
+        "label": "ziglang/zig",
+        "url": "https://github.com/ziglang/zig"
+      },
+      {
+        "kind": "concept",
+        "id": "concept:zig",
+        "label": "Zig",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:compilers",
+        "label": "Compilers",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:linkers",
+        "label": "Linkers",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:systems programming",
+        "label": "Systems programming",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:comptime",
+        "label": "comptime",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:cross-compilation",
+        "label": "cross-compilation",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:llvm",
+        "label": "LLVM",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:allocators",
+        "label": "allocators",
+        "url": null
+      },
+      {
+        "kind": "concept",
+        "id": "concept:abi",
+        "label": "ABI",
+        "url": null
+      },
+      {
+        "kind": "related_story",
+        "id": "story:hare-systems-language",
+        "label": "Hare: a systems language that wants to stay small",
+        "url": "/story/hare-systems-language"
+      },
+      {
+        "kind": "related_story",
+        "id": "story:cosmopolitan-libc-ape",
+        "label": "Cosmopolitan Libc: actually portable executable, taken seriously",
+        "url": "/story/cosmopolitan-libc-ape"
+      },
+      {
+        "kind": "related_story",
+        "id": "story:tigerbeetle-oltp-database",
+        "label": "TigerBeetle: an OLTP database obsessed with the hardware",
+        "url": "/story/tigerbeetle-oltp-database"
+      }
+    ],
+    "edges": [
+      {
+        "source": "story:zig-language-systems",
+        "target": "source:https://github.com/ziglang/zig",
+        "relation": "primary"
+      },
+      {
+        "source": "story:zig-language-systems",
+        "target": "source:https://ziglang.org/",
+        "relation": "supporting"
+      },
+      {
+        "source": "story:zig-language-systems",
+        "target": "project:https://github.com/ziglang/zig",
+        "relation": "code"
+      },
+      {
+        "source": "story:zig-language-systems",
+        "target": "concept:zig",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:zig-language-systems",
+        "target": "concept:compilers",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:zig-language-systems",
+        "target": "concept:linkers",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:zig-language-systems",
+        "target": "concept:systems programming",
+        "relation": "tagged"
+      },
+      {
+        "source": "story:zig-language-systems",
+        "target": "concept:comptime",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:zig-language-systems",
+        "target": "concept:cross-compilation",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:zig-language-systems",
+        "target": "concept:llvm",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:zig-language-systems",
+        "target": "concept:allocators",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:zig-language-systems",
+        "target": "concept:abi",
+        "relation": "rabbit"
+      },
+      {
+        "source": "story:zig-language-systems",
+        "target": "story:hare-systems-language",
+        "relation": "related"
+      },
+      {
+        "source": "story:zig-language-systems",
+        "target": "story:cosmopolitan-libc-ape",
+        "relation": "related"
+      },
+      {
+        "source": "story:zig-language-systems",
+        "target": "story:tigerbeetle-oltp-database",
+        "relation": "related"
+      }
+    ]
+  },
+  "youtube_status": "NO VIDEO FOUND",
+  "editorial": {}
+}
